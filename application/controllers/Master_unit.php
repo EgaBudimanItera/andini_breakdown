@@ -29,7 +29,9 @@ class Master_unit extends CI_Controller {
 			'link' => 'master_unit',
 			'page' => 'unit/data_unit',
 			'script' => 'unit/script',
-			'row' => $this->Model->getdata('unit')
+			'row' => $this->Model->getdata('unit'),
+			'jenis' => $this->Model->getdata('jenis'),
+			'merk' => $this->Model->getdata('merk')
 		);
 		$this->load->view('template/wrapper', $data);
 	}
@@ -42,8 +44,13 @@ class Master_unit extends CI_Controller {
 
 	public function save_unit(){
 		$kodeunit = $this->input->post('kode_unit', true);
-		$namaunit = $this->input->post('nama_unit', true);
-
+		$tipeunit = $this->input->post('tipe_unit', true);
+		$kdjenis = $this->input->post('kode_jenis', true);
+		$kdmerk = $this->input->post('kode_merk', true);
+		$wilayah_unit = $this->input->post('wilayah_unit', true);
+		$hmawal = $this->input->post('hmawal', true);
+		$hmakhir = $this->input->post('hmakhir', true);
+		
 		//cek kode unit
 		$cek = $this->Model->getdata('unit', array('kdunit' => $kodeunit));
 		if($cek->num_rows() != 0){
@@ -58,7 +65,12 @@ class Master_unit extends CI_Controller {
 		//definisi data to save
 		$data = array(
 			'kdunit' => $kodeunit,
-			'namaunit' => $namaunit
+			'tipeunit' => $tipeunit,
+			'kdjenis' => $kdjenis,
+			'kdmerk' => $kdmerk,
+			'wilayahunit' => $wilayah_unit,
+			'hmawal' => $hmawal,
+			'hmakhir' => $hmakhir,
 		);
 
 		//save data

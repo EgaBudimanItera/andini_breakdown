@@ -51,7 +51,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Kode unit</th>
-                                        <th>Nama unit</th>
+                                        <th>Tipe unit</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -61,7 +61,7 @@
                                     <tr class="">
                                         <td><?=$no++?>.</td>
                                         <td><?=$record->kdunit?></td>
-                                        <td></td>                                        
+                                        <td><?=$record->tipeunit?></td>                                        
                                         <td><a href="#" class="editdata" id="<?=$record->kdunit?>">Edit</a></td>
                                         <td><a href="#" class="deletedata" id="<?=$record->kdunit?>">Delete</a></td>
                                     </tr>
@@ -97,8 +97,38 @@
 
           </div>
           <div class="form-group">
-            <label>Nama unit</label>
-            <input type="text" name="nama_unit" id="nama_unit" class="span12" required/>
+            <label>Jenis </label>
+            <select name="kode_jenis" id="kode_jenis" class="span12" required >
+              <option value="">--pilih--</option>
+              <?php foreach($jenis->result() as $jns){?>
+              <option value="<?=$jns->kdjenis?>"><?=$jns->namajenis?></option>
+              <?php }?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tipe unit</label>
+            <input type="text" name="tipe_unit" id="tipe_unit" class="span12" required/>
+          </div>
+          <div class="form-group">
+            <label>Merk </label>
+            <select name="kode_merk" id="kode_merk" class="span12" required >
+              <option value="">--pilih--</option>
+              <?php foreach($merk->result() as $mrk){?>
+              <option value="<?=$mrk->kdmerk?>"><?=$mrk->namamerk?></option>
+              <?php }?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Wilayah unit</label>
+            <input type="text" name="wilayah_unit" id="wilayah_unit" class="span12" required/>
+          </div>
+          <div class="form-group">
+            <label>HM awal</label>
+            <input type="text" name="hmawal" id="hmawal" class="span12" required/>
+          </div>
+          <div class="form-group">
+            <label>HM akhir</label>
+            <input type="text" name="hmakhir" id="hmakhir" class="span12" required/>
           </div>
           <button type="submit" class="btn btn-success">Save</button>
         </form>
