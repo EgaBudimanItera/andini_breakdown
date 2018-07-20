@@ -157,12 +157,42 @@
         <form id="form_unit_edit">
           <div class="form-group">
             <label>Kode unit <small>(max. 5 char)</small></label>
-            <input type="text" name="kode_unit_edit" id="kode_unit_edit" readonly class="span12" maxlength="5" required />
+            <input type="text" name="kode_unit_edit" id="kode_unit_edit" class="span12" maxlength="5" readonly required />
 
           </div>
           <div class="form-group">
-            <label>Nama unit</label>
-            <input type="text" name="nama_unit_edit" id="nama_unit_edit" class="span12" required/>
+            <label>Jenis </label>
+            <select name="kode_jenis_edit" id="kode_jenis_edit" class="span12" required >
+              <option value="">--pilih--</option>
+              <?php foreach($jenis->result() as $jns){?>
+              <option value="<?=$jns->kdjenis?>"><?=$jns->namajenis?></option>
+              <?php }?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tipe unit</label>
+            <input type="text" name="tipe_unit_edit" id="tipe_unit_edit" class="span12" required/>
+          </div>
+          <div class="form-group">
+            <label>Merk </label>
+            <select name="kode_merk_edit" id="kode_merk_edit" class="span12" required >
+              <option value="">--pilih--</option>
+              <?php foreach($merk->result() as $mrk){?>
+              <option value="<?=$mrk->kdmerk?>"><?=$mrk->namamerk?></option>
+              <?php }?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Wilayah unit</label>
+            <input type="text" name="wilayah_unit_edit" id="wilayah_unit_edit" class="span12" required/>
+          </div>
+          <div class="form-group">
+            <label>HM awal</label>
+            <input type="text" name="hmawal_edit" id="hmawal_edit" class="span12" required/>
+          </div>
+          <div class="form-group">
+            <label>HM akhir</label>
+            <input type="text" name="hmakhir_edit" id="hmakhir_edit" class="span12" required/>
           </div>
           <button type="submit" class="btn btn-success">Save</button>
         </form>

@@ -96,10 +96,20 @@ class Master_unit extends CI_Controller {
 
 	public function update_unit(){
 		$kodeunit = $this->input->post('kode_unit_edit', true);
-		$namaunit = $this->input->post('nama_unit_edit', true);
+		$tipeunit = $this->input->post('tipe_unit_edit', true);
+		$kdjenis = $this->input->post('kode_jenis_edit', true);
+		$kdmerk = $this->input->post('kode_merk_edit', true);
+		$wilayah_unit = $this->input->post('wilayah_unit_edit', true);
+		$hmawal = $this->input->post('hmawal_edit', true);
+		$hmakhir = $this->input->post('hmakhir_edit', true);
 		$data = array(
 			// 'kdunit' => $kodeunit,
-			'namaunit' => $namaunit
+			'tipeunit' => $tipeunit,
+			'kdjenis' => $kdjenis,
+			'kdmerk' => $kdmerk,
+			'wilayahunit' => $wilayah_unit,
+			'hmawal' => $hmawal,
+			'hmakhir' => $hmakhir,
 		);
 
 		//save data

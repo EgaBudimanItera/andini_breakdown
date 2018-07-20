@@ -23,7 +23,12 @@
 				dataType: 'JSON',
 				success: function(msg){					
 					$('#kode_unit_edit').val(msg.kdunit);
-					$('#nama_unit_edit').val(msg.namaunit);
+					$('#tipe_unit_edit').val(msg.tipeunit);
+					$('#kode_jenis_edit').val(msg.kdjenis);
+					$('#kode_merk_edit').val(msg.kdmerk);
+					$('#wilayah_unit_edit').val(msg.wilayahunit);
+					$('#hmawal_edit').val(msg.hmawal);
+					$('#hmakhir_edit').val(msg.hmakhir);
 				}
 			});
 		});
