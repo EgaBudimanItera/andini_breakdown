@@ -31,7 +31,9 @@ class Master_unit extends CI_Controller {
 			'script' => 'unit/script',
 			'row' => $this->Model->getdata('unit'),
 			'jenis' => $this->Model->getdata('jenis'),
-			'merk' => $this->Model->getdata('merk')
+			'merk' => $this->Model->getdata('merk'),
+			'jenis1' => $this->Model->getdata('jenis'),
+			'merk1' => $this->Model->getdata('merk')
 		);
 		$this->load->view('template/wrapper', $data);
 	}
@@ -95,13 +97,13 @@ class Master_unit extends CI_Controller {
 	}
 
 	public function update_unit(){
-		$kodeunit = $this->input->post('kode_unit_edit', true);
-		$tipeunit = $this->input->post('tipe_unit_edit', true);
-		$kdjenis = $this->input->post('kode_jenis_edit', true);
-		$kdmerk = $this->input->post('kode_merk_edit', true);
-		$wilayah_unit = $this->input->post('wilayah_unit_edit', true);
-		$hmawal = $this->input->post('hmawal_edit', true);
-		$hmakhir = $this->input->post('hmakhir_edit', true);
+		$kodeunit = $this->input->post('kode_unit', true);
+		$tipeunit = $this->input->post('tipe_unit', true);
+		$kdjenis = $this->input->post('kode_jenis', true);
+		$kdmerk = $this->input->post('kode_merk', true);
+		$wilayah_unit = $this->input->post('wilayah_unit', true);
+		$hmawal = $this->input->post('hmawal', true);
+		$hmakhir = $this->input->post('hmakhir', true);
 		$data = array(
 			// 'kdunit' => $kodeunit,
 			'tipeunit' => $tipeunit,

@@ -11,24 +11,36 @@
    $(document).ready(function(e){
 		$(document).on('click', '.add_unit', function(e){
 			$('#modal_unit').modal();
+			$('#kode_unit').attr('readonly', false);
+			$('#aksiunit').val('tambah');
+			$('#form_unit')[0].reset();
 		});
 
 		$(document).on('click', '.editdata', function(e){
-			$('#modal_unit_edit').modal();
+			$('#modal_unit').modal();
+			$('#aksiunit').val('edit');
 			var id = $(this).attr('id');
 			$.ajax({
 				url: '<?=base_url()?>master_unit/get_unit',
 				type: 'POST',
 				data: 'kdunit='+id,
 				dataType: 'JSON',
-				success: function(msg){					
-					$('#kode_unit_edit').val(msg.kdunit);
-					$('#tipe_unit_edit').val(msg.tipeunit);
-					$('#kode_jenis_edit').val(msg.kdjenis);
-					$('#kode_merk_edit').val(msg.kdmerk);
-					$('#wilayah_unit_edit').val(msg.wilayahunit);
-					$('#hmawal_edit').val(msg.hmawal);
-					$('#hmakhir_edit').val(msg.hmakhir);
+				success: function(msg){	
+					$('#kode_unit').attr('readonly', true);
+					$('#kode_unit').val(msg.kdunit);
+					$('#tipe_unit').val(msg.tipeunit);
+					$('#kode_jenis').val(msg.kdjenis);
+					$('#kode_merk').val(msg.kdmerk);
+					$('#wilayah_unit').val(msg.wilayahunit);
+					$('#hmawal').val(msg.hmawal);
+					$('#hmakhir').val(msg.hmakhir);			
+					// $('#kode_unit_edit').val(msg.kdunit);
+					// $('#tipe_unit_edit').val(msg.tipeunit);
+					// $('#kode_jenis_edit').val(msg.kdjenis);
+					// $('#kode_merk_edit').val(msg.kdmerk);
+					// $('#wilayah_unit_edit').val(msg.wilayahunit);
+					// $('#hmawal_edit').val(msg.hmawal);
+					// $('#hmakhir_edit').val(msg.hmakhir);
 				}
 			});
 		});
@@ -62,21 +74,41 @@
 			e.preventDefault();
 			$('#notif_unit').html('Loading...');
 			var data = $('#form_unit').serialize();
-			$.ajax({
-				url: '<?=base_url()?>master_unit/save_unit',
-				type: 'POST',
-				data: data,
-				dataType: 'JSON',
-				success: function(msg){
-					if(msg.status == 'sukses'){
-						$('#notif_unit').html(msg.txt);
-						location.reload();
-					}else if(msg.status == 'gagal'){
-						$('#notif_unit').html(msg.txt);
+			var aksi = $('#aksiunit').val();
+			if(aksi == 'tambah'){
+				$.ajax({
+					url: '<?=base_url()?>master_unit/save_unit',
+					type: 'POST',
+					data: data,
+					dataType: 'JSON',
+					success: function(msg){
+						if(msg.status == 'sukses'){
+							$('#notif_unit').html(msg.txt);
+							location.reload();
+						}else if(msg.status == 'gagal'){
+							$('#notif_unit').html(msg.txt);
+						}
+						
 					}
-					
-				}
-			});
+				});
+			}else if(aksi == 'edit'){
+				$.ajax({
+					url: '<?=base_url()?>master_unit/update_unit',
+					type: 'POST',
+					data: data,
+					dataType: 'JSON',
+					success: function(msg){
+						if(msg.status == 'sukses'){
+							$('#notif_unit').html(msg.txt);
+							location.reload();
+						}else if(msg.status == 'gagal'){
+							$('#notif_unit').html(msg.txt);
+						}
+						
+					}
+				});
+			}
+			
 		});
 
 		$(document).on('submit', '#form_unit_edit', function(e){
