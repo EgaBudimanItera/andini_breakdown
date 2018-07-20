@@ -41,26 +41,14 @@
                <div class="span12">
                   <div class="widget">
                         <div class="widget-title">
-                           <h4><i class="icon-globe"></i>Dashboard</h4>
+                           <h4><i class="icon-globe"></i>Order Breakdown</h4>
                            <span class="tools">
                            <a href="javascript:;" class="icon-chevron-down"></a>
                            <a href="javascript:;" class="icon-remove"></a>
                            </span>                    
                         </div>
                         <div class="widget-body">
-                            <center><h3>Aplikasi Breakdown</h3></center>
-                            <hr/>
-                            <h4>Mengelola:</h4>
-                            <ol>                           
-                              <li>Jenis</li>
-                              <li>Kerusakan</li>
-                              <li>Komponen</li>
-                              <li>Merk</li>
-                              <li>Perbaikan</li>
-                              <li>Unit</li>
-                              <li>User</li>
-                              <li>Breakdown</li>
-                            </ol>
+                            
                         </div>
                   </div>
                </div>

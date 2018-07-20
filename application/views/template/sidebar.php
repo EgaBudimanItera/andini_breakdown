@@ -30,13 +30,13 @@
                       <li class="<?=$link == 'master_user' ? 'active' : ''?>"><a class="" href="<?=base_url()?>master_user">Master User </a></li>
                   </ul>
               </li>
-              <li class="has-sub">
+              <li class="has-sub <?=$link == 'order_breakdown'? 'active' : ''?>">
                   <a href="javascript:;" class="">
                       <span class="icon-box"><i class="icon-th"></i></span> Breakdown
                       <span class="arrow"></span>
                   </a>
                   <ul class="sub">
-                      <li><a class="" href="basic_table.html">Proses Breakdown</a></li>
+                      <li class="<?=$link == 'order_breakdown' ? 'active' : ''?>"><a class="" href="<?=base_url()?>order_breakdown">Order Breakdown</a></li>
                   </ul>
               </li>
               <!-- <li><a class="" href="login.html"><span class="icon-box"><i class="icon-user"></i></span> User</a></li> -->

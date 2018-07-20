@@ -79,68 +79,7 @@
       </div>
       <!-- END PAGE -->  
 
-<!-- Modal -->
-<div id="modal_unit" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">unit</h4>
-      </div>
-      <div class="modal-body">
-        <form id="form_unit">
-          <div class="form-group">
-            <label>Kode unit <small>(max. 5 char)</small></label>
-            <input type="text" name="kode_unit" id="kode_unit" class="span12" maxlength="5" required />
-
-          </div>
-          <div class="form-group">
-            <label>Jenis </label>
-            <select name="kode_jenis" id="kode_jenis" class="span12" required >
-              <option value="">--pilih--</option>
-              <?php foreach($jenis->result() as $jns){?>
-              <option value="<?=$jns->kdjenis?>"><?=$jns->namajenis?></option>
-              <?php }?>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Tipe unit</label>
-            <input type="text" name="tipe_unit" id="tipe_unit" class="span12" required/>
-          </div>
-          <div class="form-group">
-            <label>Merk </label>
-            <select name="kode_merk" id="kode_merk" class="span12" required >
-              <option value="">--pilih--</option>
-              <?php foreach($merk->result() as $mrk){?>
-              <option value="<?=$mrk->kdmerk?>"><?=$mrk->namamerk?></option>
-              <?php }?>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Wilayah unit</label>
-            <input type="text" name="wilayah_unit" id="wilayah_unit" class="span12" required/>
-          </div>
-          <div class="form-group">
-            <label>HM awal</label>
-            <input type="text" name="hmawal" id="hmawal" class="span12" required/>
-          </div>
-          <div class="form-group">
-            <label>HM akhir</label>
-            <input type="text" name="hmakhir" id="hmakhir" class="span12" required/>
-          </div>
-          <button type="submit" class="btn btn-success">Save</button>
-        </form>
-        <div id="notif_unit"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 
 <!-- Modal -->
@@ -220,6 +159,69 @@
         <p>Apakah anda yakin akan menghapus data ini?</p>
         <button class="btn btn-danger btn-sm ya_hapus_unit">Ya</button> <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Tidak</button><br/><br/>
         <div id="notif_unit_hapus"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modal_unit" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">unit</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form_unit">
+          <div class="form-group">
+            <label>Kode unit <small>(max. 5 char)</small></label>
+            <input type="text" name="kode_unit" id="kode_unit" class="span12" maxlength="5" required />
+
+          </div>
+          <div class="form-group">
+            <label>Jenis </label>
+            <select name="kode_jenis" id="kode_jenis" class="span12" required >
+              <option value="">--pilih--</option>
+              <?php foreach($jenis->result() as $jns){?>
+              <option value="<?=$jns->kdjenis?>"><?=$jns->namajenis?></option>
+              <?php }?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tipe unit</label>
+            <input type="text" name="tipe_unit" id="tipe_unit" class="span12" required/>
+          </div>
+          <div class="form-group">
+            <label>Merk </label>
+            <select name="kode_merk" id="kode_merk" class="span12" required >
+              <option value="">--pilih--</option>
+              <?php foreach($merk->result() as $mrk){?>
+              <option value="<?=$mrk->kdmerk?>"><?=$mrk->namamerk?></option>
+              <?php }?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Wilayah unit</label>
+            <input type="text" name="wilayah_unit" id="wilayah_unit" class="span12" required/>
+          </div>
+          <div class="form-group">
+            <label>HM awal</label>
+            <input type="text" name="hmawal" id="hmawal" class="span12" required/>
+          </div>
+          <div class="form-group">
+            <label>HM akhir</label>
+            <input type="text" name="hmakhir" id="hmakhir" class="span12" required/>
+          </div>
+          <button type="submit" class="btn btn-success">Save</button>
+        </form>
+        <div id="notif_unit"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

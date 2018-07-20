@@ -36,10 +36,10 @@
                                <b class="caret"></b>
                            </a>
                            <ul class="dropdown-menu">
-                               <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+                               <!-- <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
                                <li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
                                <li><a href="#"><i class="icon-calendar"></i> Calendar</a></li>
-                               <li class="divider"></li>
+                               <li class="divider"></li> -->
                                <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
                            </ul>
                        </li>
