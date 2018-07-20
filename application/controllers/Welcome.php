@@ -21,8 +21,10 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-			'page' => 'welcome_message'
+			'link' => 'dashboard',
+			'page' => 'welcome_message',
 		);
 		$this->load->view('template/wrapper', $data);
+		
 	}
 }
