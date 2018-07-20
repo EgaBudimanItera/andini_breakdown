@@ -20,6 +20,7 @@
    <![endif]-->
    <script type="text/javascript" src="<?=base_url()?>assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
    <script type="text/javascript" src="<?=base_url()?>assets/uniform/jquery.uniform.min.js"></script>
+   
    <script src="<?=base_url()?>assets/js/scripts.js"></script>
    <script>
       jQuery(document).ready(function() {       
@@ -27,6 +28,7 @@
          App.init();
       });
    </script>
+   <?php if(isset($script)){$this->load->view($script);}?>
    <!-- END JAVASCRIPTS -->   
 </body>
 <!-- END BODY -->
