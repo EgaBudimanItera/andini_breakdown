@@ -15,7 +15,7 @@
          <!-- BEGIN SIDEBAR MENU -->
           <ul class="sidebar-menu">
               <li><a class="" href="<?=base_url()?>"><span class="icon-box"><i class="icon-home"></i></span> Dashboard</a></li>
-              <li class="has-sub <?=$link == 'master_jenis' || $link == 'master_kerusakan' ? 'active' : ''?>">
+              <li class="has-sub <?=$link == 'master_jenis' || $link == 'master_kerusakan' || $link == 'master_merk' ? 'active' : ''?>">
                   <a href="javascript:;" class="">
                       <span class="icon-box"><i class="icon-tasks"></i></span> Master Data
                       <span class="arrow"></span>
@@ -24,7 +24,7 @@
                       <li class="<?=$link == 'master_jenis' ? 'active' : ''?>"><a class="" href="<?=base_url()?>master_jenis">Master Jenis</a></li>
                       <li class="<?=$link == 'master_kerusakan' ? 'active' : ''?>"><a class="" href="<?=base_url()?>master_kerusakan">Master Kerusakan</a></li>
                       <li><a class="" href="<?=base_url()?>master_komponen">Master Komponen</a></li>
-                      <li><a class="" href="<?=base_url()?>master_merk">Master Merk</a></li>
+                      <li class="<?=$link == 'master_merk' ? 'active' : ''?>"><a class="" href="<?=base_url()?>master_merk">Master Merk</a></li>
                       <li><a class="" href="<?=base_url()?>master_perbaikan">Master Perbaikan </a></li>
                       <li><a class="" href="<?=base_url()?>master_unit">Master Unit </a></li>
                       <li><a class="" href="<?=base_url()?>master_user">Master User </a></li>
