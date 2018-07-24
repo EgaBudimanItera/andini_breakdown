@@ -48,42 +48,34 @@
                            </span>                    
                         </div>
                         <div class="widget-body">
-                            <form action="<?=base_url()?>order_breakdown/simpanorderbreakdown" method="POST">
-                              <table class="table table-striped">
-                                 <tr>
-                                  <td><label>Kode Order:</label></td>
-                                  <td><input type="text" name="kdorder" id="kdorder" class="span12" required /></td>
-                                </tr>
-                                <tr>
-                                  <td><label>Nama:</label></td>
-                                  <td><input type="text" name="nama" id="nama" class="span12" required /></td>
-                                </tr>
-                                <tr>
-                                  <td><label>Divisi:</label></td>
-                                  <td><input type="text" name="divisi" id="divisi" class="span12" required /></td>
-                                </tr>
-                                <tr>
-                                  <td><label>Unit:</label></td>
-                                  <td>
-                                    <select class="span12" name="unit" id="unit" required>
-                                      <option value="">--pilih--</option>
-                                      <?php foreach($unit->result() as $row_unit){?>
-                                      <option value="<?=$row_unit->kdunit?>"><?=$row_unit->tipeunit.' - '.$row_unit->wilayahunit.' - '.$row_unit->hmawal.' - '.$row_unit->hmakhir?></option>
-                                      <?php }?>
-                                    </select>
-                                  </td>
-                                </tr>
-                                <!-- <tr>
-                                  <td><label>Tanggal Order:</label></td>
-                                  <td><input type="text" name="nama" id="nama" class="span12" required /></td>
-                                </tr>  -->
-                                <tr>
-                                  <td></td>
-                                  <td><button type="submit" class="btn btn-success">Save</button></td>
-                                </tr>                               
-                              </table>
-                              
-                            </form>
+                            <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                    <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Kode Order</th>
+                                        <th>Nama</th>
+                                        <th>Divisi</th>
+                                        <th>Unit</th>
+                                        <th>Tanggal Order</th>
+                                        <th>Jam Order</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php $no = 1;foreach($row->result() as $record){?>
+                                    <tr class="">
+                                        <td><?=$no++?>.</td>
+                                        <td><?=$record->kdorder?></td>
+                                        <td><?=$record->orderbyname?></td>
+                                        <td><?=$record->orderbydiv?></td>   
+                                        <td><?=$record->kdunit.' - '.$record->tipeunit.' - '.$record->wilayahunit?></td>
+                                        <td><?=$record->tglorder?></td> 
+                                        <td><?=$record->jamorder?></td>                                   
+                                        <td><a href="<?=base_url()?>order_breakdown/detail/<?=$record->kdorder?>" class="editdata" id="<?=$record->kdunit?>">Detail</a></td>
+                                    </tr>
+                                    <?php }?>
+                                    </tbody>
+                                </table>
                         </div>
                   </div>
                </div>

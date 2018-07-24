@@ -26,6 +26,10 @@ class Model extends CI_Model {
         return true;
     }
 
+    function kueri(){
+    	
+    }
+
     
 
 
