@@ -84,11 +84,14 @@ INSERT INTO `merk` (`kdmerk`, `namamerk`) VALUES
 
 DROP TABLE IF EXISTS `orderaksi`;
 CREATE TABLE `orderaksi` (
-  `kd` int(11) NOT NULL DEFAULT '0',
+  `kd` int(11) NOT NULL AUTO_INCREMENT,
   `kdorder` varchar(20) DEFAULT NULL,
-  `aksi` text
+  `aksi` text,
+  PRIMARY KEY (`kd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `orderaksi` (`kd`, `kdorder`, `aksi`) VALUES
+(3,	'order1',	'hsdhd dhdj');
 
 DROP TABLE IF EXISTS `orderbreakdown`;
 CREATE TABLE `orderbreakdown` (
@@ -108,6 +111,8 @@ CREATE TABLE `orderbreakdown` (
   PRIMARY KEY (`kdorder`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `orderbreakdown` (`kdorder`, `orderbyname`, `orderbydiv`, `tglorder`, `jamorder`, `kdunit`, `tglmulai`, `jammulai`, `tglselesai`, `jamselesai`, `kdkerusakan`, `statusbd`, `statusakhir`) VALUES
+('order1',	'test',	'tik',	'2018-07-24',	'08:18:05',	'1',	'2018-07-25',	'13:00:00',	'2018-07-28',	'08:00:00',	'NRF',	'BUS',	'BD');
 
 DROP TABLE IF EXISTS `orderkomponen`;
 CREATE TABLE `orderkomponen` (
@@ -117,6 +122,9 @@ CREATE TABLE `orderkomponen` (
   PRIMARY KEY (`kd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `orderkomponen` (`kd`, `kdorder`, `kdkomponen`) VALUES
+(1,	'order1',	'015'),
+(3,	'order1',	'017');
 
 DROP TABLE IF EXISTS `ordermekanik`;
 CREATE TABLE `ordermekanik` (
@@ -126,6 +134,8 @@ CREATE TABLE `ordermekanik` (
   PRIMARY KEY (`kd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `ordermekanik` (`kd`, `kdorder`, `namamekanik`) VALUES
+(1,	'order1',	'vendetta');
 
 DROP TABLE IF EXISTS `orderperbaikan`;
 CREATE TABLE `orderperbaikan` (
@@ -135,6 +145,8 @@ CREATE TABLE `orderperbaikan` (
   PRIMARY KEY (`kd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `orderperbaikan` (`kd`, `kdorder`, `kdperbaikan`) VALUES
+(1,	'order1',	'B0');
 
 DROP TABLE IF EXISTS `orderproblem`;
 CREATE TABLE `orderproblem` (
@@ -144,6 +156,8 @@ CREATE TABLE `orderproblem` (
   PRIMARY KEY (`kd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `orderproblem` (`kd`, `kdorder`, `problem`) VALUES
+(1,	'order1',	'test problem');
 
 DROP TABLE IF EXISTS `perbaikan`;
 CREATE TABLE `perbaikan` (
@@ -279,8 +293,7 @@ INSERT INTO `unit` (`kdunit`, `kdjenis`, `tipeunit`, `kdmerk`, `wilayahunit`, `h
 ('AG-16-01',	'10',	'GD 825A-2',	'1',	'Unit Timur',	0,	NULL),
 ('dh64',	'4',	'hsh djdjd',	'3',	'dhd',	543,	123),
 ('EX-020-12',	'1',	'PC200-8',	'1',	'Unit Timur*',	20060,	NULL),
-('EX-020-13',	'1',	'PC200-8',	'1',	'Unit Timur*',	55256,	NULL),
-('pilop',	'6',	'hs shdh edit',	'6',	'hshs ddhd',	9977,	566);
+('EX-020-13',	'1',	'PC200-8',	'1',	'Unit Timur*',	55256,	NULL);
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -297,4 +310,4 @@ INSERT INTO `user` (`id_user`, `nama`, `username`, `hak_akses`, `password`) VALU
 ('002',	'pimpinan',	'pimpinan',	'pimpinan',	'pimpinan'),
 ('003',	'engineerin',	'engineerin',	'engineering',	'engineerin');
 
--- 2018-07-20 05:21:39
+-- 2018-07-25 01:56:03

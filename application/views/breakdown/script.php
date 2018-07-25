@@ -7,4 +7,11 @@
    jQuery(document).ready(function() {       
        TableEditable.init();
    });
+
+   
+   function konfirmasihapus(){
+   	if(confirm("Apakah anda yakin akan menghapus data ini?")){
+		return true;
+	} else { return false; }
+   }
 </script>

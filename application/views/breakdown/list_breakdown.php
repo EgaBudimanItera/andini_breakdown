@@ -71,7 +71,10 @@
                                         <td><?=$record->kdunit.' - '.$record->tipeunit.' - '.$record->wilayahunit?></td>
                                         <td><?=$record->tglorder?></td> 
                                         <td><?=$record->jamorder?></td>                                   
-                                        <td><a href="<?=base_url()?>order_breakdown/detail/<?=$record->kdorder?>" class="editdata" id="<?=$record->kdunit?>">Detail</a></td>
+                                        <td>
+                                          <a class="btn btn-default" href="<?=base_url()?>order_breakdown/detail/<?=$record->kdorder?>" class="editdata" id="<?=$record->kdunit?>">Detail</a>
+                                          <a class="btn btn-default" href="<?=base_url()?>order_breakdown/selesaikan/<?=$record->kdorder?>" class="editdata" id="<?=$record->kdunit?>">Selesaikan</a>
+                                        </td>
                                     </tr>
                                     <?php }?>
                                     </tbody>

@@ -81,6 +81,102 @@
                             </form>
                         </div>
                   </div>
+                  <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-globe"></i>Komponen Breakdown</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>                    
+                        </div>
+                        <div class="widget-body">
+                            <form action="<?=base_url()?>order_breakdown/simpanorderbreakdownkomponen" method="POST">
+                              <table class="table table-striped">
+                                 
+                                <tr>
+                                  <td><label>Komponen:</label></td>
+                                  <td>
+                                    <input type="hidden" name="kdorder3" id="kdorder3" class="span12" required value="<?=$row->row()->kdorder?>" readonly />
+                                    <select class="span12" name="kdkomponen" required>
+                                      <option value="">--pilih--</option>
+                                      <?php foreach($komponen->result() as $row_komponen){?>
+                                      <option value="<?=$row_komponen->kdkomp?>"><?=$row_komponen->kdkomp.' - '.$row_komponen->namakomp?></option>
+                                      <?php }?>
+                                    </select>
+                                </tr>
+                                
+                                <tr>
+                                  <td></td>
+                                  <td><button type="submit" class="btn btn-success">Proses</button></td>
+                                </tr>                               
+                              </table>
+                              <table class="table table-striped">
+                              <tr>
+                                <th>No.</th>
+                                <th>Kode Komponen</th>
+                                <th>nama Komponen</th>
+                                <th></th>
+                              </tr>
+                              <?php $no = 1; foreach($list_komp->result() as $row_komp){?>
+                              <tr>
+                                <td><?=$no++?>.</td>
+                                <td><?=$row_komp->kdkomp?></td>
+                                <td><?=$row_komp->namakomp?></td>
+                                <td><a href="<?=base_url()?>order_breakdown/hapus_komp/<?=$row_komp->kd?>/<?=$row_komp->kdorder?>" onclick='return confirm("Apakah anda yakin akan menghapus data ini?")'>Hapus</a></td>
+                              </tr>
+                              <?php }?>
+                            </table>
+                            </form>
+                        </div>
+                  </div>
+                  <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-globe"></i>Perbaikan Breakdown</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>                    
+                        </div>
+                        <div class="widget-body">
+                            <form action="<?=base_url()?>order_breakdown/simpanorderbreakdownperbaikan" method="POST">
+                              <table class="table table-striped">
+                                 
+                                <tr>
+                                  <td><label>Perbaikan:</label></td>
+                                  <td>
+                                    <input type="hidden" name="kdorder5" id="kdorder5" class="span12" required value="<?=$row->row()->kdorder?>" readonly />
+                                    <select class="span12" name="kdperbaikan" required>
+                                      <option value="">--pilih--</option>
+                                      <?php foreach($perbaikan->result() as $row_perbaikan){?>
+                                      <option value="<?=$row_perbaikan->kdperbaikan?>"><?=$row_perbaikan->kdperbaikan.' - '.$row_perbaikan->keterangan?></option>
+                                      <?php }?>
+                                    </select>
+                                </tr>
+                                
+                                <tr>
+                                  <td></td>
+                                  <td><button type="submit" class="btn btn-success">Proses</button></td>
+                                </tr>                               
+                              </table>
+                              <table class="table table-striped">
+                              <tr>
+                                <th>No.</th>
+                                <th>Kode Perbaikan</th>
+                                <th>nama Perbaikan</th>
+                                <th></th>
+                              </tr>
+                              <?php $no = 1; foreach($list_perbaikan->result() as $row_perbaikan){?>
+                              <tr>
+                                <td><?=$no++?>.</td>
+                                <td><?=$row_perbaikan->kdperbaikan?></td>
+                                <td><?=$row_perbaikan->keterangan?></td>
+                                <td><a href="<?=base_url()?>order_breakdown/hapus_perbaikan/<?=$row_perbaikan->kd?>/<?=$row_perbaikan->kdorder?>" onclick='return confirm("Apakah anda yakin akan menghapus data ini?")'>Hapus</a></td>
+                              </tr>
+                              <?php }?>
+                            </table>
+                            </form>
+                        </div>
+                  </div>
                </div>
                <div class="span6">
                   <div class="widget">
@@ -97,7 +193,9 @@
                                  
                                 <tr>
                                   <td><label>Tanggal Mulai:</label></td>
-                                  <td><input type="text" name="tglmulai" id="tglmulai" class="span12" required value="<?=$row->row()->tglmulai?>"/></td>
+                                  <td>
+                                    <input type="hidden" name="kdorder1" id="kdorder1" class="span12" required value="<?=$row->row()->kdorder?>" readonly />
+                                    <input type="text" name="tglmulai" id="tglmulai" class="span12" required value="<?=$row->row()->tglmulai?>"/></td>
                                 </tr>
                                 <tr>
                                   <td><label>Jam Mulai:</label></td>
@@ -125,7 +223,8 @@
                               <table class="table table-striped">
                                 <tr>
                                   <td><label>Aksi:</label></td>
-                                  <td><textarea class="span12"></textarea></td>
+                                  <td>
+                                    <input type="hidden" name="kdorder2" id="kdorder2" class="span12" required value="<?=$row->row()->kdorder?>" readonly /><textarea name="aksibreakdown" class="span12"></textarea></td>
                                 </tr>
                                 <tr>
                                   <td></td>
@@ -134,6 +233,98 @@
                               </table>
                               
                             </form>
+                            <table class="table table-striped">
+                              <tr>
+                                <th>No.</th>
+                                <th>Detail Aksi</th>
+                                <th></th>
+                              </tr>
+                              <?php $no = 1; foreach($aksi->result() as $row_aksi){?>
+                              <tr>
+                                <td><?=$no++?>.</td>
+                                <td><?=$row_aksi->aksi?></td>
+                                <td><a href="<?=base_url()?>order_breakdown/hapus_aksi/<?=$row_aksi->kd?>/<?=$row_aksi->kdorder?>" onclick='return confirm("Apakah anda yakin akan menghapus data ini?")'>Hapus</a></td>
+                              </tr>
+                              <?php }?>
+                            </table>
+                        </div>
+                  </div>
+                  <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-globe"></i>Mekanik Breadkdown</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>                    
+                        </div>
+                        <div class="widget-body">
+                            <form action="<?=base_url()?>order_breakdown/simpanorderbreakdownmekanik" method="POST">
+                              <table class="table table-striped">
+                                <tr>
+                                  <td><label>Nama Mekanik:</label></td>
+                                  <td>
+                                    <input type="hidden" name="kdorder4" id="kdorder4" class="span12" required value="<?=$row->row()->kdorder?>" readonly /><input name="namamekanik" class="span12"/></td>
+                                </tr>
+                                <tr>
+                                  <td></td>
+                                  <td><button type="submit" class="btn btn-success">Proses</button></td>
+                                </tr>                               
+                              </table>
+                              
+                            </form>
+                            <table class="table table-striped">
+                              <tr>
+                                <th>No.</th>
+                                <th>Mekanik</th>
+                                <th></th>
+                              </tr>
+                              <?php $no = 1; foreach($list_mekanik->result() as $row_mekanik){?>
+                              <tr>
+                                <td><?=$no++?>.</td>
+                                <td><?=$row_mekanik->namamekanik?></td>
+                                <td><a href="<?=base_url()?>order_breakdown/hapus_mekanik/<?=$row_mekanik->kd?>/<?=$row_mekanik->kdorder?>" onclick='return confirm("Apakah anda yakin akan menghapus data ini?")'>Hapus</a></td>
+                              </tr>
+                              <?php }?>
+                            </table>
+                        </div>
+                  </div>
+                  <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-globe"></i>Problem Breadkdown</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>                    
+                        </div>
+                        <div class="widget-body">
+                            <form action="<?=base_url()?>order_breakdown/simpanorderbreakdownproblem" method="POST">
+                              <table class="table table-striped">
+                                <tr>
+                                  <td><label>Problem:</label></td>
+                                  <td>
+                                    <input type="hidden" name="kdorder6" id="kdorder6" class="span12" required value="<?=$row->row()->kdorder?>" readonly /><textarea name="problem" class="span12"/></textarea></td>
+                                </tr>
+                                <tr>
+                                  <td></td>
+                                  <td><button type="submit" class="btn btn-success">Proses</button></td>
+                                </tr>                               
+                              </table>
+                              
+                            </form>
+                            <table class="table table-striped">
+                              <tr>
+                                <th>No.</th>
+                                <th>Problem</th>
+                                <th></th>
+                              </tr>
+                              <?php $no = 1; foreach($list_problem->result() as $row_problem){?>
+                              <tr>
+                                <td><?=$no++?>.</td>
+                                <td><?=$row_problem->problem?></td>
+                                <td><a href="<?=base_url()?>order_breakdown/hapus_problem/<?=$row_problem->kd?>/<?=$row_problem->kdorder?>" onclick='return confirm("Apakah anda yakin akan menghapus data ini?")'>Hapus</a></td>
+                              </tr>
+                              <?php }?>
+                            </table>
                         </div>
                   </div>
                </div>
