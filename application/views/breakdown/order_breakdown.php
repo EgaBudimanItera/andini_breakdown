@@ -52,7 +52,7 @@
                               <table class="table table-striped">
                                  <tr>
                                   <td><label>Kode Order:</label></td>
-                                  <td><input type="text" name="kdorder" id="kdorder" class="span12" required /></td>
+                                  <td><input readonly type="text" name="kdorder" id="kdorder" class="span12" required value="<?=$this->Model->id_breakdown()?>" /></td>
                                 </tr>
                                 <tr>
                                   <td><label>Nama:</label></td>

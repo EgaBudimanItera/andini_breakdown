@@ -44,7 +44,8 @@ class Order_breakdown extends CI_Controller {
 		}
 
 		$data = array(
-			'kdorder' => $this->input->post('kdorder', true),
+			// 'kdorder' => $this->input->post('kdorder', true),
+			'kdorder' => $this->Model->id_breakdown(),
 			'orderbyname' => $this->input->post('nama', true),
 			'orderbydiv' => $this->input->post('divisi', true),
 			'tglorder' => date('Y-m-d'),
@@ -117,6 +118,7 @@ class Order_breakdown extends CI_Controller {
 		$data = array(
 			'tglmulai' => $this->input->post('tglmulai', true),
 			'jammulai' => $this->input->post('jammulai', true),
+			'statusbd' => 'BS'
 		);
 		$simpan = $this->Model->updatedata('orderbreakdown', array('kdorder' => $this->input->post('kdorder1', true)), $data);
 		if($simpan){
