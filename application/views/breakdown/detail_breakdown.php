@@ -55,7 +55,9 @@
                                 </tr>
                                 <tr>
                                   <td><label>Jam Order:</label></td>
-                                  <td><input type="text" name="jamorder" id="jamorder" class="span12" required value="<?=$row->row()->jamorder?>" readonly/></td>
+                                  <td>
+
+                                    <input type="text" name="jamorder" id="jamorder" class="span12" required value="<?=$row->row()->jamorder?>" readonly/></td>
                                 </tr>
                                 <tr>
                                   <td><label>Unit:</label></td>
@@ -199,7 +201,13 @@
                                 </tr>
                                 <tr>
                                   <td><label>Jam Mulai:</label></td>
-                                  <td><input type="text" name="jammulai" id="jammulai" class="span12" required value="<?=$row->row()->jammulai?>" /></td>
+                                  <td>
+                                    <div class="input-append bootstrap-timepicker-component">
+                                            <input class=" m-ctrl-small timepicker-24" type="text" />
+                                            <span class="add-on"><i class="icon-time"></i></span>
+                                        </div>
+
+                                    <!-- <input type="text" name="jammulai" id="jammulai" class="span12" required value="<?=$row->row()->jammulai?>" /></td> -->
                                 </tr>
                                 <tr>
                                   <td></td>

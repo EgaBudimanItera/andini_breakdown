@@ -15,6 +15,9 @@
    <link href="<?=base_url()?>assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
    <link href="<?=base_url()?>assets/bootstrap/css/bootstrap-fileupload.css" rel="stylesheet" />
    <link href="<?=base_url()?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+   <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/bootstrap-datepicker/css/datepicker.css" />
+   <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/bootstrap-timepicker/compiled/timepicker.css" />
+
    <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet" />
    <link href="<?=base_url()?>assets/css/style_responsive.css" rel="stylesheet" />
    <link href="<?=base_url()?>assets/css/style_default.css" rel="stylesheet" id="style_color" />
