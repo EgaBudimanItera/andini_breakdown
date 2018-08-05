@@ -198,7 +198,6 @@
                                   <td>
                                     <input type="hidden" name="kdorder1" id="kdorder1" class="span12" required value="<?=$row->row()->kdorder?>" readonly />
                                     <input class=" m-ctrl-medium date-picker"  name="tglmulai" id="tglmulai" size="16" type="text" value="<?=$row->row()->tglmulai?>" />
-
                                     <!-- <input type="text" name="tglmulai" id="tglmulai" class="span12" required /></td> -->
                                 </tr>
                                 <tr>
