@@ -62,7 +62,7 @@
                                 <tr>
                                   <td><label>Unit:</label></td>
                                   <td>
-                                    <select class="span12" name="unit" id="unit" required readonly>
+                                    <select class="span12 chosen" name="unit" id="unit" required readonly>
                                       <option value="">--pilih--</option>
                                       <?php foreach($unit->result() as $row_unit){?>
                                       <option value="<?=$row_unit->kdunit?>" <?=$row_unit->kdunit == $row->row()->kdunit ? 'selected' : ''?>><?=$row_unit->tipeunit.' - '.$row_unit->wilayahunit.' - '.$row_unit->hmawal.' - '.$row_unit->hmakhir?></option>
@@ -99,7 +99,7 @@
                                   <td><label>Komponen:</label></td>
                                   <td>
                                     <input type="hidden" name="kdorder3" id="kdorder3" class="span12" required value="<?=$row->row()->kdorder?>" readonly />
-                                    <select class="span12" name="kdkomponen" required>
+                                    <select class="span12 chosen" name="kdkomponen" required>
                                       <option value="">--pilih--</option>
                                       <?php foreach($komponen->result() as $row_komponen){?>
                                       <option value="<?=$row_komponen->kdkomp?>"><?=$row_komponen->kdkomp.' - '.$row_komponen->namakomp?></option>
@@ -147,7 +147,7 @@
                                   <td><label>Perbaikan:</label></td>
                                   <td>
                                     <input type="hidden" name="kdorder5" id="kdorder5" class="span12" required value="<?=$row->row()->kdorder?>" readonly />
-                                    <select class="span12" name="kdperbaikan" required>
+                                    <select class="span12 chosen" name="kdperbaikan" required>
                                       <option value="">--pilih--</option>
                                       <?php foreach($perbaikan->result() as $row_perbaikan){?>
                                       <option value="<?=$row_perbaikan->kdperbaikan?>"><?=$row_perbaikan->kdperbaikan.' - '.$row_perbaikan->keterangan?></option>
@@ -203,10 +203,10 @@
                                   <td><label>Jam Mulai:</label></td>
                                   <td>
                                     <div class="input-append bootstrap-timepicker-component">
-                                            <input class=" m-ctrl-small timepicker-24" type="text" />
+                                            <input class=" m-ctrl-small timepicker-24" type="text" name="jammulai" id="jammulai" />
                                             <span class="add-on"><i class="icon-time"></i></span>
                                         </div>
-
+                                  </td>
                                     <!-- <input type="text" name="jammulai" id="jammulai" class="span12" required value="<?=$row->row()->jammulai?>" /></td> -->
                                 </tr>
                                 <tr>

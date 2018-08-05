@@ -24,6 +24,8 @@
 
    <link href="<?=base_url()?>assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
    <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/uniform/css/uniform.default.css" />
+   <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/chosen-bootstrap/chosen/chosen.css" />
+   <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/bootstrap-daterangepicker/daterangepicker.css" />
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
