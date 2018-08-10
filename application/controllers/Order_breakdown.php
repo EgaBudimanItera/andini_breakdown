@@ -292,7 +292,7 @@ class Order_breakdown extends CI_Controller {
 
 	public function simpanorderbreakdownselesaikan(){
 		$data = array(
-			'tglselesai' => $this->input->post('tglselesai', true),
+			'tglselesai' => date('Y-m-d', strtotime($this->input->post('tglselesai', true))),
 			'jamselesai' => $this->input->post('jamselesai', true),
 			'kdkerusakan' => $this->input->post('kdkerusakan', true),
 			'statusbd' => $this->input->post('statusbd', true),

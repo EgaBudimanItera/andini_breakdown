@@ -30,7 +30,7 @@
                       <li class="<?=$link == 'master_user' ? 'active' : ''?>"><a class="" href="<?=base_url()?>master_user">Master User </a></li>
                   </ul>
               </li>
-              <li class="has-sub <?=$link == 'order_breakdown' || $link == 'list_breakdown'? 'active' : ''?>">
+              <li class="has-sub <?=$link == 'order_breakdown' || $link == 'list_breakdown' || $link == 'laporan_grafik'? 'active' : ''?>">
                   <a href="javascript:;" class="">
                       <span class="icon-box"><i class="icon-th"></i></span> Breakdown
                       <span class="arrow"></span>
@@ -38,6 +38,7 @@
                   <ul class="sub">
                       <li class="<?=$link == 'order_breakdown' ? 'active' : ''?>"><a class="" href="<?=base_url()?>order_breakdown">Order Breakdown</a></li>
                       <li class="<?=$link == 'list_breakdown' ? 'active' : ''?>"><a class="" href="<?=base_url()?>order_breakdown/list_breakdown">List Breakdown</a></li>
+                      <li class="<?=$link == 'laporan_grafik' ? 'active' : ''?>"><a class="" href="<?=base_url()?>laporan_grafik">Laporan Grafik </a></li>
                   </ul>
               </li>
               <!-- <li><a class="" href="login.html"><span class="icon-box"><i class="icon-user"></i></span> User</a></li> -->

@@ -110,11 +110,17 @@
                                   <td><label>Tanggal Selesai:</label></td>
                                   <td>
                                     
-                                    <input type="text" name="tglselesai" id="tglselesai" class="span12" required value="<?=$row->row()->tglselesai?>" /></td>
+                                    <input type="text" name="tglselesai" id="tglselesai" class=" m-ctrl-medium date-picker" required value="<?=$row->row()->tglselesai?>" <?php if($row->row()->tglselesai !== NULL || $row->row()->tglselesai != ''){echo 'readonly'; } ?> /></td>
                                 </tr>
                                 <tr>
                                   <td><label>Jam Selesai:</label></td>
-                                  <td><input type="text" name="jamselesai" id="jamselesai" class="span12" required value="<?=$row->row()->jamselesai?>"/></td>
+                                  <td>
+                                    <div class="input-append bootstrap-timepicker-component">
+                                        <input class=" m-ctrl-small timepicker-24" type="text" name="jamselesai" id="jamselesai" value="<?=$row->row()->jamselesai?>" <?php if($row->row()->jamselesai !== NULL || $row->row()->jamselesai != ''){echo 'readonly'; } ?> />
+                                        <span class="add-on"><i class="icon-time"></i></span>
+                                    </div>
+                                    <!-- <input type="text" name="jamselesai" id="jamselesai" class="span12" required value="<?=$row->row()->jamselesai?>"/> -->
+                                  </td>
                                 </tr>
                                 <tr>
                                   <td><label>Kerusakan:</label></td>
