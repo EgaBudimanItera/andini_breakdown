@@ -15,7 +15,7 @@
    <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.blockui.js"></script>
    <script type="text/javascript" src="<?=base_url()?>assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>  
    <script type="text/javascript" src="<?=base_url()?>assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-
+   
    <!-- ie8 fixes -->
    <!--[if lt IE 9]>
    <script src="js/excanvas.js"></script>

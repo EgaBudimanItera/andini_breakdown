@@ -64,7 +64,7 @@ class Order_breakdown extends CI_Controller {
 
 	public function list_breakdown(){
 		$this->db->from('orderbreakdown');
-		$this->db->join('unit', 'unit.kdunit = orderbreakdown.kdunit');
+		$this->db->join('unit', 'unit.kdunit = orderbreakdown.kdunit', 'left');
 		$row = $this->db->get();
 		$data = array(
 			'link' => 'list_breakdown',
@@ -116,7 +116,7 @@ class Order_breakdown extends CI_Controller {
 
 	public function simpanorderbreakdownjammulai(){
 		$data = array(
-			'tglmulai' => $this->input->post('tglmulai', true),
+			'tglmulai' => date('Y-m-d', strtotime($this->input->post('tglmulai', true))),
 			'jammulai' => $this->input->post('jammulai', true),
 			'statusbd' => 'BS'
 		);

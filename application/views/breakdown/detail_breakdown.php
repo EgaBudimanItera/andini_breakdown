@@ -197,23 +197,27 @@
                                   <td><label>Tanggal Mulai:</label></td>
                                   <td>
                                     <input type="hidden" name="kdorder1" id="kdorder1" class="span12" required value="<?=$row->row()->kdorder?>" readonly />
-                                    <input class=" m-ctrl-medium date-picker"  name="tglmulai" id="tglmulai" size="16" type="text" value="<?=$row->row()->tglmulai?>" />
+                                    <input class=" m-ctrl-medium date-picker"  name="tglmulai" id="tglmulai" size="16" type="text" value="<?=$row->row()->tglmulai?>" <?php if($row->row()->tglmulai !== NULL || $row->row()->tglmulai != ''){echo 'readonly'; } ?> />
                                     <!-- <input type="text" name="tglmulai" id="tglmulai" class="span12" required /></td> -->
                                 </tr>
                                 <tr>
                                   <td><label>Jam Mulai:</label></td>
                                   <td>
                                     <div class="input-append bootstrap-timepicker-component">
-                                            <input class=" m-ctrl-small timepicker-24" type="text" name="jammulai" id="jammulai" />
+                                            <input class=" m-ctrl-small timepicker-24" type="text" name="jammulai" id="jammulai" value="<?=$row->row()->jammulai?>" <?php if($row->row()->jammulai !== NULL || $row->row()->jammulai != ''){echo 'readonly'; } ?> />
                                             <span class="add-on"><i class="icon-time"></i></span>
                                         </div>
                                   </td>
                                     <!-- <input type="text" name="jammulai" id="jammulai" class="span12" required value="<?=$row->row()->jammulai?>" /></td> -->
                                 </tr>
+                                <?php if((($row->row()->jammulai === NULL || $row->row()->jammulai == '') && ($row->row()->tglmulai === NULL || $row->row()->tglmulai == ''))){?>
                                 <tr>
                                   <td></td>
-                                  <td><button type="submit" class="btn btn-success">Proses</button></td>
-                                </tr>                               
+                                  <td>                                    
+                                    <button type="submit" class="btn btn-success" >Proses</button>                                    
+                                  </td>
+                                </tr>    
+                                <?php }?>                           
                               </table>
                               
                             </form>
