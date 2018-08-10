@@ -34,6 +34,7 @@
                            </span>                    
                         </div>
                         <div class="widget-body">
+                          <form id="form_laporan">
                             <table class="table table-striped">
                               <tr>
                                 <td>Dari</td>
@@ -50,15 +51,16 @@
                               <tr>
                                 <td></td>
                                 <td>
-                                  &nbsp; <button class="btn btn-sm btn-primary">
+                                  &nbsp; <button type="button" class="btn btn-sm btn-primary lihat_laporan">
                                     <i class=" icon-eye-open"></i> Lihat
                                   </button>
-                                  <button class="btn btn-sm btn-danger">
+                                  <button type="button" class="btn btn-sm btn-danger cetak_laporan">
                                     <i class="icon-print"></i> Cetak
                                   </button>
                                 </td>
                               </tr>
                             </table>
+                          </form>
                             <br/>
                             <div id="result_laporan"></div>
                         </div>

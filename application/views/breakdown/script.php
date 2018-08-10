@@ -18,4 +18,11 @@
 		return true;
 	} else { return false; }
    }
+
+   $(document).ready(function(e){
+	$(document).on('click', '.lihat_laporan', function(e){
+		e.preventDefault();
+		$('#result_laporan').html('Loading...');
+	});
+   });
 </script>
