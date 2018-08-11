@@ -20,9 +20,16 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$jml_hari_bln_ini = cal_days_in_month(CAL_GREGORIAN, date('m'), date('Y'));
+		$tgl_awal = date('Y-m-').'01';
+		$tgl_akhir = date('Y-m-').$jml_hari_bln_ini;
+		$query = $this->db->query("select count(*) as jumlah, kdunit from orderbreakdown 
+			where tglorder between '2018-08-01' and '2018-08-31' group by kdunit");
+		
 		$data = array(
 			'link' => 'dashboard',
 			'page' => 'welcome_message',
+			'jumlah_hari' => $jml_hari_bln_ini
 		);
 		$this->load->view('template/wrapper', $data);
 		
