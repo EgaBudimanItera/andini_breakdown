@@ -14,7 +14,7 @@
          <!-- END RESPONSIVE QUICK SEARCH FORM -->
          <!-- BEGIN SIDEBAR MENU -->
           <ul class="sidebar-menu">
-              <li class="<?=$link == 'dashboard' ? 'active' : ''?>"><a class="" href="<?=base_url()?>"><span class="icon-box"><i class="icon-home"></i></span> Dashboard</a></li>
+              <li class="<?=$link == 'dashboard' ? 'active' : ''?>"><a class="" href="<?=base_url()?>welcome"><span class="icon-box"><i class="icon-home"></i></span> Dashboard</a></li>
               <li class="has-sub <?=$link == 'master_jenis' || $link == 'master_kerusakan' || $link == 'master_merk' || $link == 'master_perbaikan' || $link == 'master_komponen' || $link == 'master_unit' || $link == 'master_user'? 'active' : ''?>">
                   <a href="javascript:;" class="">
                       <span class="icon-box"><i class="icon-tasks"></i></span> Master Data
