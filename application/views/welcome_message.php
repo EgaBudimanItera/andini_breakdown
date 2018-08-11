@@ -34,9 +34,8 @@
                            </span>                    
                         </div>
                         <div class="widget-body">
-                            <center><h3>Aplikasi Breakdown</h3><p>Grafik Untuk bulan <?=date('m').' '.date('Y')?></p></center>
+                            <center><h3>Aplikasi Breakdown</h3><p>Grafik <br/> tanggal <?='01 '.date('F').' '.date('Y')?> s/d <?=$jumlah_hari.' '.date('F').' '.date('Y')?></p></center>
                             <hr/>
-                            <?=$jumlah_hari?>
                             <!-- <h4>Mengelola:</h4>
                             <ol>                           
                               <li>Jenis</li>
