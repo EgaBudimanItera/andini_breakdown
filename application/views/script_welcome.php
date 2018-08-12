@@ -5,9 +5,10 @@ window.onload = function () {
 
 var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
+	exportEnabled: true,
 	theme: "light2", // "light1", "light2", "dark1", "dark2"
 	title: {
-		text: "Jumlah Rata - Rata Kerusakan 5 Unit Teratas"
+		text: "Rata - Rata Kerusakan 5 Unit Teratas"
 	},
 	axisY: {
 		title: "Rata - Rata",
