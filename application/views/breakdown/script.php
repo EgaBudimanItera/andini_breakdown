@@ -20,9 +20,18 @@
    }
 
    $(document).ready(function(e){
-	$(document).on('click', '.lihat_laporan', function(e){
-		e.preventDefault();
-		$('#result_laporan').html('Loading...');
-	});
+    	$(document).on('click', '.lihat_laporan', function(e){
+    		e.preventDefault();
+    		$('#result_laporan').html('Loading...');
+        var data = $('#form_laporan').serialize();
+        $.ajax({
+          url: '<?=base_url()?>laporan_grafik/lihat_grafik_periode',
+          type: 'POST',
+          data: data,
+          success: function(msg){
+            $('#result_laporan').html(msg);
+          }
+        });
+    	});
    });
 </script>
