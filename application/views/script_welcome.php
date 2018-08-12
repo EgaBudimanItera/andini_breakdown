@@ -19,16 +19,19 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	},
 	data: [{
 		type: "column",
-		yValueFormatString: "#,##0.0#\"%\"",
+		// yValueFormatString: "#,##0.0#\"%\"",
 		dataPoints: [
-			{ label: "India", y: 7.1 },	
-			{ label: "China", y: 6.70 },	
-			{ label: "Indonesia", y: 5.00 },
-			{ label: "Australia", y: 2.50 },	
-			{ label: "Mexico", y: 2.30 },
-			{ label: "UK", y: 1.80 },
-			{ label: "United States", y: 1.60 },
-			{ label: "Japan", y: 1.60 }
+			<?php foreach($row->result() as $data){?>
+			{ label: "<?=$data->namajenis?>-<?=$data->namamerk?>", y: <?=number_format($data->jumlah/$jumlah_hari, 2, '.', ',')?> },
+			<?php }?>
+				
+			// { label: "China", y: 6.70 },	
+			// { label: "Indonesia", y: 5.00 },
+			// { label: "Australia", y: 2.50 },	
+			// { label: "Mexico", y: 2.30 },
+			// { label: "UK", y: 1.80 },
+			// { label: "United States", y: 1.60 },
+			// { label: "Japan", y: 1.60 }
 			
 		]
 	}]

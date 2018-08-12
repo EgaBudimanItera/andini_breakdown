@@ -29,7 +29,8 @@ class Welcome extends CI_Controller {
 			'link' => 'dashboard',
 			'page' => 'welcome_message',
 			'jumlah_hari' => $jml_hari_bln_ini,
-			'script' => 'script_welcome'
+			'script' => 'script_welcome',
+			'row' => $query
 		);
 		$this->load->view('template/wrapper', $data);
 		
