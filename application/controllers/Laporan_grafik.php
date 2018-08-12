@@ -41,7 +41,10 @@ class Laporan_grafik extends CI_Controller {
 		$query = $this->db->query("select count(*) as jumlah, unit.kdunit, namajenis, namamerk from orderbreakdown left join unit on unit.kdunit = orderbreakdown.kdunit left join jenis on jenis.kdjenis = unit.kdjenis left join merk on merk.kdmerk = unit.kdmerk where tglorder between '$tgl_awal' and '$tgl_akhir' group by kdunit order by jumlah DESC limit 5");
 		$data = array(			
 			'script' => 'script_welcome',
-			'jumlah_hari' => $jml_hari_bln_ini
+			'jumlah_hari' => $jml_hari_bln_ini,
+			'row' => $query,
+			'tanggal_awal' => $tgl_awal,
+			'tanggal_akhir' => $tgl_akhir
 		);
 		$this->load->view('lihat_laporan_grafik', $data);
 	}

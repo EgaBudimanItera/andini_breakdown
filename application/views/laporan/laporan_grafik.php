@@ -54,9 +54,9 @@
                                   &nbsp; <button type="button" class="btn btn-sm btn-primary lihat_laporan">
                                     <i class=" icon-eye-open"></i> Lihat
                                   </button>
-                                  <button type="button" class="btn btn-sm btn-danger cetak_laporan">
+                                  <!-- <button type="button" class="btn btn-sm btn-danger cetak_laporan">
                                     <i class="icon-print"></i> Cetak
-                                  </button>
+                                  </button> -->
                                 </td>
                               </tr>
                             </table>
