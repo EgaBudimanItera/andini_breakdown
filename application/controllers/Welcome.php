@@ -23,13 +23,13 @@ class Welcome extends CI_Controller {
 		$jml_hari_bln_ini = cal_days_in_month(CAL_GREGORIAN, date('m'), date('Y'));
 		$tgl_awal = date('Y-m-').'01';
 		$tgl_akhir = date('Y-m-').$jml_hari_bln_ini;
-		$query = $this->db->query("select count(*) as jumlah, kdunit from orderbreakdown 
-			where tglorder between '2018-08-01' and '2018-08-31' group by kdunit");
+		$query = $this->db->query("select count(*) as jumlah, unit.kdunit, namajenis, namamerk from orderbreakdown left join unit on unit.kdunit = orderbreakdown.kdunit left join jenis on jenis.kdjenis = unit.kdjenis left join merk on merk.kdmerk = unit.kdmerk where tglorder between '2018-08-01' and '2018-08-31' group by kdunit order by jumlah DESC limit 5");
 		
 		$data = array(
 			'link' => 'dashboard',
 			'page' => 'welcome_message',
-			'jumlah_hari' => $jml_hari_bln_ini
+			'jumlah_hari' => $jml_hari_bln_ini,
+			'script' => 'script_welcome'
 		);
 		$this->load->view('template/wrapper', $data);
 		
