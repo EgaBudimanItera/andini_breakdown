@@ -72,8 +72,8 @@
                                         <td><?=$record->tglorder?></td> 
                                         <td><?=$record->jamorder?></td>                                   
                                         <td>
-                                          <a class="btn btn-default" href="<?=base_url()?>order_breakdown/detail/<?=$record->kdorder?>" class="editdata" id="<?=$record->kdunit?>">Detail</a>
-                                          <a class="btn btn-default" href="<?=base_url()?>order_breakdown/selesaikan/<?=$record->kdorder?>" class="editdata" id="<?=$record->kdunit?>">Selesaikan</a>
+                                          <a class="btn btn-primary" href="<?=base_url()?>order_breakdown/detail/<?=$record->kdorder?>" class="editdata" id="<?=$record->kdunit?>">Detail</a>
+                                          <a class="btn btn-success" href="<?=base_url()?>order_breakdown/selesaikan/<?=$record->kdorder?>" class="editdata" id="<?=$record->kdunit?>">Selesaikan</a>
                                         </td>
                                     </tr>
                                     <?php }?>

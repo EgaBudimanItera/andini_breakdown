@@ -28,7 +28,8 @@ class Order_breakdown extends CI_Controller {
 		$data = array(
 			'link' => 'order_breakdown',
 			'page' => 'breakdown/order_breakdown',
-			'unit' => $this->Model->getdataall('unit')
+			'unit' => $this->Model->getdataall('unit'),
+			'id'=>$this->Model->id_breakdown(),
 		);
 		$this->load->view('template/wrapper', $data);
 		

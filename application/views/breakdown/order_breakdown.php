@@ -1,4 +1,5 @@
 <!-- BEGIN PAGE -->  
+
 <div id="main-content">
          <!-- BEGIN PAGE CONTAINER-->
          <div class="container-fluid">
@@ -22,6 +23,7 @@
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                    <h3 class="page-title">
                      Dashboard
+
                   </h3>
                    <ul class="breadcrumb">
                        <li>
@@ -48,19 +50,20 @@
                            </span>                    
                         </div>
                         <div class="widget-body">
+ 
                             <form action="<?=base_url()?>order_breakdown/simpanorderbreakdown" method="POST">
                               <table class="table table-striped">
                                  <tr>
                                   <td><label>Kode Order:</label></td>
-                                  <td><input readonly type="text" name="kdorder" id="kdorder" class="span12" required value="<?=$this->Model->id_breakdown()?>" /></td>
+                                  <td><input readonly type="text" name="kdorder" id="kdorder" class="span12" required value="<?=$id?>" /></td>
                                 </tr>
                                 <tr>
                                   <td><label>Nama:</label></td>
-                                  <td><input type="text" name="nama" id="nama" class="span12" required /></td>
+                                  <td><input type="text" name="nama" id="nama" class="span12" value="<?=$this->session->userdata('nama')?>" readonly /></td>
                                 </tr>
                                 <tr>
                                   <td><label>Divisi:</label></td>
-                                  <td><input type="text" name="divisi" id="divisi" class="span12" required /></td>
+                                  <td><input type="text" name="divisi" id="divisi" value="<?=$this->session->userdata('hak_akses')?>" class="span12" readonly /></td>
                                 </tr>
                                 <tr>
                                   <td><label>Unit:</label></td>
