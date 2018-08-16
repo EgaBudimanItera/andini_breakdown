@@ -62,12 +62,18 @@
                                 <tr>
                                   <td><label>Unit:</label></td>
                                   <td>
-                                    <select class="span12 chosen" name="unit" id="unit" required readonly>
+                                    <select class="span12" name="unit" id="unit" required disabled readonly>
                                       <option value="">--pilih--</option>
                                       <?php foreach($unit->result() as $row_unit){?>
                                       <option value="<?=$row_unit->kdunit?>" <?=$row_unit->kdunit == $row->row()->kdunit ? 'selected' : ''?>><?=$row_unit->tipeunit.' - '.$row_unit->wilayahunit.' - '.$row_unit->hmawal.' - '.$row_unit->hmakhir?></option>
                                       <?php }?>
                                     </select>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><label>Keluhan:</label></td>
+                                  <td>
+                                    <textarea class="span12" name="keluhan" id="keluhan"><?=$row->row()->keluhan?></textarea>
                                   </td>
                                 </tr>
                                 <!-- <tr>

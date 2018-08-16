@@ -51,6 +51,8 @@ class Order_breakdown extends CI_Controller {
 			'tglorder' => date('Y-m-d'),
 			'jamorder' => date('H:i:s'),
 			'kdunit' => $this->input->post('unit', true),
+			'keluhan' => $this->input->post('keluhan', true),
+			'pelapor' => $this->session->userdata('username', true)
 		);
 		$simpan = $this->Model->insertdata('orderbreakdown', $data);
 		if($simpan){

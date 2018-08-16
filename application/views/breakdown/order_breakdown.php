@@ -73,6 +73,12 @@
                                     </select>
                                   </td>
                                 </tr>
+                                <tr>
+                                  <td><label>Keluhan:</label></td>
+                                  <td>
+                                    <textarea class="span12" name="keluhan" id="keluhan"></textarea>
+                                  </td>
+                                </tr>
                                 <!-- <tr>
                                   <td><label>Tanggal Order:</label></td>
                                   <td><input type="text" name="nama" id="nama" class="span12" required /></td>
