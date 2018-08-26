@@ -93,7 +93,7 @@
         <form id="form_jenis">
           <div class="form-group">
             <label>Kode Jenis <small>(max. 5 char)</small></label>
-            <input type="text" name="kode_jenis" id="kode_jenis" class="span12" maxlength="5" required />
+            <input type="text" name="kode_jenis" id="kode_jenis" class="span12" maxlength="5" value="<?=$kd_jenis?>" readonly required />
 
           </div>
           <div class="form-group">

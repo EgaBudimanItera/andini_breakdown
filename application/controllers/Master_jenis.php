@@ -29,7 +29,8 @@ class Master_jenis extends CI_Controller {
 			'link' => 'master_jenis',
 			'page' => 'jenis/data_jenis',
 			'script' => 'jenis/script',
-			'row' => $this->Model->getdata('jenis')
+			'row' => $this->Model->getdata('jenis'),
+			'kd_jenis' => $this->Model->id_jenis()
 		);
 		$this->load->view('template/wrapper', $data);
 	}

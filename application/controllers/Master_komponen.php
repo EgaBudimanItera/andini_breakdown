@@ -29,7 +29,8 @@ class Master_komponen extends CI_Controller {
 			'link' => 'master_komponen',
 			'page' => 'komponen/data_komponen',
 			'script' => 'komponen/script',
-			'row' => $this->Model->getdata('komponen')
+			'row' => $this->Model->getdata('komponen'),
+			'kd_komp' => $this->Model->id_komponen()
 		);
 		$this->load->view('template/wrapper', $data);
 	}

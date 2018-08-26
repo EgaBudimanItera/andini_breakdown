@@ -29,7 +29,8 @@ class Master_merk extends CI_Controller {
 			'link' => 'master_merk',
 			'page' => 'merk/data_merk',
 			'script' => 'merk/script',
-			'row' => $this->Model->getdata('merk')
+			'row' => $this->Model->getdata('merk'),
+			'kd_merk' => $this->Model->id_merk()
 		);
 		$this->load->view('template/wrapper', $data);
 	}

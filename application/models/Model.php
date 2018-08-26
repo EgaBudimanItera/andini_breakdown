@@ -50,7 +50,64 @@ class Model extends CI_Model {
         return $kodejadi;
     }
 
-    
+    function id_jenis(){
+        //BMmmYY  000001
+        $this->db->select('Right(kdjenis,3) as kode',false);
+        
+        $this->db->order_by('kdjenis','DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('jenis');
 
+        if($query->num_rows()<>0){
+            $data = $query->row();
+            $kode = intval($data->kode)+1;
+        }else{
+            $kode = 1;
+
+        }
+        $kodemax = str_pad($kode,3,"0",STR_PAD_LEFT);
+        $kodejadi  = "J".$kodemax;
+        return $kodejadi;
+    }
+
+    function id_merk(){
+        //BMmmYY  000001
+        $this->db->select('Right(kdmerk,3) as kode',false);
+        
+        $this->db->order_by('kdmerk','DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('merk');
+
+        if($query->num_rows()<>0){
+            $data = $query->row();
+            $kode = intval($data->kode)+1;
+        }else{
+            $kode = 1;
+
+        }
+        $kodemax = str_pad($kode,3,"0",STR_PAD_LEFT);
+        $kodejadi  = "M".$kodemax;
+        return $kodejadi;
+    }
+    
+    function id_komponen(){
+        //BMmmYY  000001
+        $this->db->select('Right(kdkomp,3) as kode',false);
+        
+        $this->db->order_by('kdkomp','DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('komponen');
+
+        if($query->num_rows()<>0){
+            $data = $query->row();
+            $kode = intval($data->kode)+1;
+        }else{
+            $kode = 1;
+
+        }
+        $kodemax = str_pad($kode,3,"0",STR_PAD_LEFT);
+        $kodejadi  = "K".$kodemax;
+        return $kodejadi;
+    }
 
 }
