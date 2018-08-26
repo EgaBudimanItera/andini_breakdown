@@ -22,7 +22,6 @@ class Master_merk extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Model');
 	}
-
 	public function index()
 	{
 		$data = array(
