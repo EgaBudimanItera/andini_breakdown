@@ -63,14 +63,14 @@ class Laporan_grafik extends CI_Controller {
 		$tgl_akhir = date('Y-m-d', strtotime($this->input->post('sampai', true)));
 		$diff = abs(strtotime($tgl_akhir)-strtotime($tgl_awal));
 		$jml_hari_bln_ini = $diff/86400;
-		$query = $this->db->query("select sum(*) as jumlah from orderkomponen join orderbreakdown on orderbreakdown.kdorder =  orderkomponen.kdorder where where tglorder between '$tgl_awal' and '$tgl_akhir' group by kd");
+		$query = $this->db->query("select count(*) as jumlah, orderkomponen.kdkomponen, komponen.namakomp from orderkomponen left join orderbreakdown on orderbreakdown.kdorder =  orderkomponen.kdorder left join komponen on komponen.kdkomp = orderkomponen.kdkomponen where tglorder between '$tgl_awal' and '$tgl_akhir' group by orderkomponen.kdkomponen");
 		$data = array(			
-			'script' => 'script_welcome',
+			// 'script' => 'script_welcome',
 			'jumlah_hari' => $jml_hari_bln_ini,
 			'row' => $query,
 			'tanggal_awal' => $tgl_awal,
 			'tanggal_akhir' => $tgl_akhir
 		);
-		$this->load->view('lihat_laporan_grafik', $data);
+		$this->load->view('lihat_laporan_grafik_komponen', $data);
 	}
 }
