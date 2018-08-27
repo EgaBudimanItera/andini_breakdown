@@ -37,8 +37,33 @@ class Laporan_grafik extends CI_Controller {
 		$tgl_awal = date('Y-m-d', strtotime($this->input->post('dari', true)));
 		$tgl_akhir = date('Y-m-d', strtotime($this->input->post('sampai', true)));
 		$diff = abs(strtotime($tgl_akhir)-strtotime($tgl_awal));
-		$jml_hari_bln_ini = $diff/86400;;
+		$jml_hari_bln_ini = $diff/86400;
 		$query = $this->db->query("select count(*) as jumlah, unit.kdunit, namajenis, namamerk from orderbreakdown left join unit on unit.kdunit = orderbreakdown.kdunit left join jenis on jenis.kdjenis = unit.kdjenis left join merk on merk.kdmerk = unit.kdmerk where tglorder between '$tgl_awal' and '$tgl_akhir' group by kdunit order by jumlah DESC limit 5");
+		$data = array(			
+			'script' => 'script_welcome',
+			'jumlah_hari' => $jml_hari_bln_ini,
+			'row' => $query,
+			'tanggal_awal' => $tgl_awal,
+			'tanggal_akhir' => $tgl_akhir
+		);
+		$this->load->view('lihat_laporan_grafik', $data);
+	}
+
+	public function grafik_komponen(){
+		$data = array(
+			'link' => 'laporan_grafik_komponen',
+			'page' => 'laporan/laporan_grafik_komponen',
+			'script' => 'breakdown/script',
+		);
+		$this->load->view('template/wrapper', $data);
+	}
+
+	public function lihat_grafik_periode_komponen(){
+		$tgl_awal = date('Y-m-d', strtotime($this->input->post('dari', true)));
+		$tgl_akhir = date('Y-m-d', strtotime($this->input->post('sampai', true)));
+		$diff = abs(strtotime($tgl_akhir)-strtotime($tgl_awal));
+		$jml_hari_bln_ini = $diff/86400;
+		$query = $this->db->query("select sum(*) as jumlah from orderkomponen join orderbreakdown on orderbreakdown.kdorder =  orderkomponen.kdorder where where tglorder between '$tgl_awal' and '$tgl_akhir' group by kd");
 		$data = array(			
 			'script' => 'script_welcome',
 			'jumlah_hari' => $jml_hari_bln_ini,

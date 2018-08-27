@@ -34,4 +34,20 @@
         });
     	});
    });
+
+   $(document).ready(function(e){
+      $(document).on('click', '.lihat_laporan_komponen', function(e){
+        e.preventDefault();
+        $('#result_laporan_komponen').html('Loading...');
+        var data = $('#form_laporan_komponen').serialize();
+        $.ajax({
+          url: '<?=base_url()?>laporan_grafik/lihat_grafik_periode_komponen',
+          type: 'POST',
+          data: data,
+          success: function(msg){
+            $('#result_laporan_komponen').html(msg);
+          }
+        });
+      });
+   });
 </script>
