@@ -73,4 +73,29 @@ class Laporan_grafik extends CI_Controller {
 		);
 		$this->load->view('lihat_laporan_grafik_komponen', $data);
 	}
+
+	public function grafik_kerusakan(){
+		$data = array(
+			'link' => 'laporan_grafik_kerusakan',
+			'page' => 'laporan/laporan_grafik_kerusakan',
+			'script' => 'breakdown/script',
+		);
+		$this->load->view('template/wrapper', $data);
+	}
+
+	public function lihat_grafik_periode_kerusakan(){
+		$tgl_awal = date('Y-m-d', strtotime($this->input->post('dari', true)));
+		$tgl_akhir = date('Y-m-d', strtotime($this->input->post('sampai', true)));
+		$diff = abs(strtotime($tgl_akhir)-strtotime($tgl_awal));
+		$jml_hari_bln_ini = $diff/86400;
+		$query = $this->db->query("SELECT COUNT(*) AS jumlah, kerusakan.kdkerusakan, kerusakan.keterangan FROM orderbreakdown LEFT JOIN kerusakan ON orderbreakdown.kdkerusakan =  kerusakan.kdkerusakan WHERE tglorder between '$tgl_awal' and '$tgl_akhir' AND orderbreakdown.kdkerusakan IS NOT NULL GROUP BY kerusakan.kdkerusakan");
+		$data = array(			
+			// 'script' => 'script_welcome',
+			'jumlah_hari' => $jml_hari_bln_ini,
+			'row' => $query,
+			'tanggal_awal' => $tgl_awal,
+			'tanggal_akhir' => $tgl_akhir
+		);
+		$this->load->view('lihat_laporan_grafik_kerusakan', $data);
+	}
 }

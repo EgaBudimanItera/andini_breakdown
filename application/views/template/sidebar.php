@@ -34,7 +34,7 @@
                   </ul>
               </li>
               <?php }?>
-              <li class="has-sub <?=$link == 'order_breakdown' || $link == 'list_breakdown' || $link == 'laporan_grafik' || $link == 'laporan_grafik_komponen' ? 'active' : ''?>">
+              <li class="has-sub <?=$link == 'order_breakdown' || $link == 'list_breakdown' || $link == 'laporan_grafik' || $link == 'laporan_grafik_komponen' || $link == 'laporan_grafik_kerusakan' ? 'active' : ''?>">
                   <a href="javascript:;" class="">
                       <span class="icon-box"><i class="icon-th"></i></span> Breakdown
                       <span class="arrow"></span>
@@ -45,6 +45,7 @@
                       <li class="<?=$link == 'list_breakdown' ? 'active' : ''?>"><a class="" href="<?=base_url()?>order_breakdown/list_breakdown">List Breakdown</a></li>
                       <li class="<?=$link == 'laporan_grafik' ? 'active' : ''?>"><a class="" href="<?=base_url()?>laporan_grafik">Laporan Grafik Breakdown</a></li>
                       <li class="<?=$link == 'laporan_grafik_komponen' ? 'active' : ''?>"><a class="" href="<?=base_url()?>laporan_grafik/grafik_komponen">Laporan Grafik Komponen</a></li>
+                      <li class="<?=$link == 'laporan_grafik_kerusakan' ? 'active' : ''?>"><a class="" href="<?=base_url()?>laporan_grafik/grafik_kerusakan">Laporan Grafik Kerusakan</a></li>
                       <?php }?>
                   </ul>
               </li>

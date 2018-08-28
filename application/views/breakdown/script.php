@@ -50,4 +50,20 @@
         });
       });
    });
+
+   $(document).ready(function(e){
+      $(document).on('click', '.lihat_laporan_kerusakan', function(e){
+        e.preventDefault();
+        $('#result_laporan_kerusakan').html('Loading...');
+        var data = $('#form_laporan_kerusakan').serialize();
+        $.ajax({
+          url: '<?=base_url()?>laporan_grafik/lihat_grafik_periode_kerusakan',
+          type: 'POST',
+          data: data,
+          success: function(msg){
+            $('#result_laporan_kerusakan').html(msg);
+          }
+        });
+      });
+   });
 </script>
