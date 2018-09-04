@@ -26,8 +26,8 @@ class Model extends CI_Model {
         return true;
     }
 
-    function kueri(){
-    	
+    function kueri($query){
+        return $this->db->query($query);	
     }
 
     function id_breakdown(){

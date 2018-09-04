@@ -25,11 +25,12 @@ class Master_unit extends CI_Controller {
 
 	public function index()
 	{
+		$query="SELECT * FROM unit JOIN merk ON unit.kdmerk=merk.kdmerk";
 		$data = array(
 			'link' => 'master_unit',
 			'page' => 'unit/data_unit',
 			'script' => 'unit/script',
-			'row' => $this->Model->getdata('unit'),
+			'row' => $this->Model->kueri($query),
 			'jenis' => $this->Model->getdata('jenis'),
 			'merk' => $this->Model->getdata('merk'),
 			'jenis1' => $this->Model->getdata('jenis'),

@@ -52,6 +52,7 @@
                                         <th>No</th>
                                         <th>Kode unit</th>
                                         <th>Tipe unit</th>
+                                        <th>Merk unit</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -61,7 +62,8 @@
                                     <tr class="">
                                         <td><?=$no++?>.</td>
                                         <td><?=$record->kdunit?></td>
-                                        <td><?=$record->tipeunit?></td>                                        
+                                        <td><?=$record->tipeunit?></td>
+                                        <th><?=$record->namamerk?></th>                                       
                                         <td><a href="#" class="editdata" id="<?=$record->kdunit?>">Edit</a></td>
                                         <td><a href="#" class="deletedata" id="<?=$record->kdunit?>">Delete</a></td>
                                     </tr>
