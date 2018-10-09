@@ -98,4 +98,58 @@ class Laporan_grafik extends CI_Controller {
 		);
 		$this->load->view('lihat_laporan_grafik_kerusakan', $data);
 	}
+
+	public function mttr(){
+		$data = array(
+			'link' => 'laporan_mttr',
+			'page' => 'laporan/laporan_mttr',
+			'script' => 'breakdown/script',
+			'unit' => $this->db->get("unit")
+		);
+		$this->load->view('template/wrapper', $data);
+	}
+
+	public function lihat_tabel_mttr(){
+		$kdunit = $this->input->post('kdunit', true);
+		$tgl_awal = date('Y-m-d', strtotime($this->input->post('dari', true)));
+		$tgl_akhir = date('Y-m-d', strtotime($this->input->post('sampai', true)));
+		$query = $this->db->query("SELECT kdorder, tglmulai, tglselesai, jammulai, jamselesai, DATEDIFF(tglselesai, tglmulai) AS dur_by_date , '' AS dur_by_time, statusakhir FROM orderbreakdown WHERE tglorder between '$tgl_awal' and '$tgl_akhir' and statusakhir = 'RFU' and kdunit = '$kdunit'");
+		$no =1;
+		echo '<table class="table table-striped">
+			<tr>
+				<td>No.</td>
+				<td>Kode Order</td>
+				<td>Tanggal Mulai</td>
+				<td>Tanggal Selesai</td>
+				<td>Jam Mulai</td>
+				<td>Jam Selesai</td>
+				<td>Duration by date</td>
+				<td>Duration by time</td>
+				<td>Status Akhir</td>
+			</tr>';
+		$total_date = 0;
+		$total_time = 0;
+		foreach($query->result() as $row_data){
+			$total_date += $row_data->dur_by_date;
+	?>
+			<tr>
+				<td><?=$no++?>.</td>
+				<td><?=$row_data->kdorder?></td>
+				<td><?=$row_data->tglmulai?></td>
+				<td><?=$row_data->tglselesai?></td>
+				<td><?=$row_data->jammulai?></td>
+				<td><?=$row_data->jamselesai?></td>
+				<td><?=$row_data->dur_by_date?></td>
+				<td><?=$row_data->dur_by_time?></td>
+				<td><?=$row_data->statusakhir?></td>
+			</tr>
+	<?php
+		}
+		$rata_kerusakan_by_date = $total_date/$query->num_rows();
+		$rata_kerusakan_by_time = $total_time/$query->num_rows();
+
+		echo '</table><hr/>';
+		echo "Periode $tgl_awal s/d $tgl_akhir unit $kdunit mengalami rata - rata kerusakan $rata_kerusakan_by_date Hari<br/><br/>";
+		echo "Periode $tgl_awal s/d $tgl_akhir unit $kdunit mengalami rata - rata kerusakan $rata_kerusakan_by_time Jam<br/><br/>";
+	}
 }

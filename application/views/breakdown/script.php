@@ -66,4 +66,18 @@
         });
       });
    });
+
+   $(document).on('submit', '#form_laporan_mttr', function(e){
+    e.preventDefault();
+    $('#result_laporan_mttr').html('Loading...');
+    var data = $('#form_laporan_mttr').serialize();
+    $.ajax({
+      url: '<?=base_url()?>laporan_grafik/lihat_tabel_mttr',
+      type: 'POST',
+      data: data,
+      success: function(msg){
+        $('#result_laporan_mttr').html(msg);
+      }
+    });
+   });
 </script>
