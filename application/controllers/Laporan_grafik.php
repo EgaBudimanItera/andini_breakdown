@@ -113,7 +113,7 @@ class Laporan_grafik extends CI_Controller {
 		$kdunit = $this->input->post('kdunit', true);
 		$tgl_awal = date('Y-m-d', strtotime($this->input->post('dari', true)));
 		$tgl_akhir = date('Y-m-d', strtotime($this->input->post('sampai', true)));
-		$query = $this->db->query("SELECT kdorder, tglmulai, tglselesai, jammulai, jamselesai, DATEDIFF(tglselesai, tglmulai) AS dur_by_date , '' AS dur_by_time, statusakhir FROM orderbreakdown WHERE tglorder between '$tgl_awal' and '$tgl_akhir' and statusakhir = 'RFU' and kdunit = '$kdunit'");
+		$query = $this->db->query("SELECT kdorder, tglmulai, tglselesai, jammulai, jamselesai, DATEDIFF(tglselesai, tglmulai) AS dur_by_date , TIMESTAMPDIFF(HOUR,CONCAT(tglmulai,' ',jammulai), CONCAT(tglselesai,' ',jamselesai) ) AS dur_by_time, statusakhir FROM orderbreakdown WHERE tglorder between '$tgl_awal' and '$tgl_akhir' and statusakhir = 'RFU' and kdunit = '$kdunit'");
 		$no =1;
 		echo '<table class="table table-striped">
 			<tr>
@@ -131,6 +131,7 @@ class Laporan_grafik extends CI_Controller {
 		$total_time = 0;
 		foreach($query->result() as $row_data){
 			$total_date += $row_data->dur_by_date;
+			$total_time += $row_data->dur_by_time;
 	?>
 			<tr>
 				<td><?=$no++?>.</td>
