@@ -16,7 +16,7 @@
           <ul class="sidebar-menu">
               <li class="<?=$link == 'dashboard' ? 'active' : ''?>"><a class="" href="<?=base_url()?>welcome"><span class="icon-box"><i class="icon-home"></i></span> Dashboard</a></li>
               <?php if($this->session->userdata('hak_akses') == 'admin' || $this->session->userdata('hak_akses') == 'pimpinan' ){?>
-              <li class="has-sub <?=$link == 'master_jenis' || $link == 'master_kerusakan' || $link == 'master_merk' || $link == 'master_perbaikan' || $link == 'master_komponen' || $link == 'master_unit' || $link == 'master_user'? 'active' : ''?>">
+              <li class="has-sub <?=$link == 'master_jenis' || $link == 'master_kerusakan' || $link == 'master_merk' || $link == 'master_perbaikan' || $link == 'master_komponen' || $link == 'master_unit' || $link == 'master_user' || $link == 'master_type_unit'? 'active' : ''?>">
                   <a href="javascript:;" class="">
                       <span class="icon-box"><i class="icon-tasks"></i></span> Master Data
                       <span class="arrow"></span>
@@ -27,6 +27,7 @@
                       <li class="<?=$link == 'master_komponen' ? 'active' : ''?>"><a class="" href="<?=base_url()?>master_komponen">Master Komponen</a></li>
                       <li class="<?=$link == 'master_merk' ? 'active' : ''?>"><a class="" href="<?=base_url()?>master_merk">Master Merk</a></li>
                       <li class="<?=$link == 'master_perbaikan' ? 'active' : ''?>"><a class="" href="<?=base_url()?>master_perbaikan">Master Perbaikan </a></li>
+                      <li class="<?=$link == 'master_type_unit' ? 'active' : ''?>"><a class="" href="<?=base_url()?>master_type_unit">Master Type Unit </a></li>
                       <li class="<?=$link == 'master_unit' ? 'active' : ''?>"><a class="" href="<?=base_url()?>master_unit">Master Unit </a></li>
                       <?php if($this->session->userdata('hak_akses') == 'pimpinan'){?>
                       <li class="<?=$link == 'master_user' ? 'active' : ''?>"><a class="" href="<?=base_url()?>master_user">Master User </a></li>
