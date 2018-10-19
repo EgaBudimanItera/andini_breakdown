@@ -29,7 +29,8 @@ class Master_type_unit extends CI_Controller {
 			'link' => 'master_type_unit',
 			'page' => 'type_unit/data_type_unit',
 			'script' => 'type_unit/script',
-			'row' => $this->Model->getdata('type_unit')
+			'row' => $this->Model->getdata('type_unit'),
+			'merk' => $this->Model->getdata('merk')
 		);
 		$this->load->view('template/wrapper', $data);
 	}

@@ -101,7 +101,13 @@
           </div>
           <div class="form-group">
             <label>Merk type unit </label>
-            <input type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12" required/>
+            <select type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12" required>
+              <option value="">--pilih--</option>
+              <?php foreach($merk->result() as $record_merk){?>
+              <option value="<?=$record_merk->kdmerk?>"><?=$record_merk->namamerk?></option>
+              <?php }?>
+            </select>
+            <!-- <input type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12" required/> -->
           </div>
           <div class="form-group">
             <label>Jenis Type unit</label>
