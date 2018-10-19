@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v11.11 (64 bit)
-MySQL - 5.5.5-10.1.30-MariaDB : Database - breakdown
+MySQL - 5.5.5-10.1.28-MariaDB : Database - breakdown
 *********************************************************************
 */
 
@@ -105,7 +105,7 @@ CREATE TABLE `orderbreakdown` (
 
 /*Data for the table `orderbreakdown` */
 
-insert  into `orderbreakdown`(`kdorder`,`orderbyname`,`orderbydiv`,`tglorder`,`jamorder`,`keluhan`,`kdunit`,`tglmulai`,`jammulai`,`tglselesai`,`jamselesai`,`kdkerusakan`,`statusbd`,`statusakhir`,`pelapor`) values ('BR010818-000001',NULL,NULL,'2018-08-01','10:09:41',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'BUS',NULL,NULL),('BR010818-000002','hshsh','sjs','2018-08-01','10:10:27',NULL,'AA-02','2018-08-10','10:00:30','2018-08-11','10:15:45','NRF','BS','RFU',NULL);
+insert  into `orderbreakdown`(`kdorder`,`orderbyname`,`orderbydiv`,`tglorder`,`jamorder`,`keluhan`,`kdunit`,`tglmulai`,`jammulai`,`tglselesai`,`jamselesai`,`kdkerusakan`,`statusbd`,`statusakhir`,`pelapor`) values ('',NULL,NULL,'2018-10-11','08:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'BUS',NULL,NULL),('BR010818-000001',NULL,NULL,'2018-08-01','10:09:41',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'BUS',NULL,NULL),('BR010818-000002','hshsh','sjs','2018-08-01','10:10:27',NULL,'AA-02','2018-08-10','10:00:30','2018-10-11','10:15:45','NRF','BS','RFU',NULL);
 
 /*Table structure for table `orderkomponen` */
 
@@ -172,6 +172,22 @@ CREATE TABLE `perbaikan` (
 /*Data for the table `perbaikan` */
 
 insert  into `perbaikan`(`kdperbaikan`,`keterangan`) values ('B0','Unit sedang dikerjakan'),('B1','Unit B/D karena pekerjaan terkendala ketersediaan Part');
+
+/*Table structure for table `type_unit` */
+
+DROP TABLE IF EXISTS `type_unit`;
+
+CREATE TABLE `type_unit` (
+  `id_type_unit` int(11) NOT NULL AUTO_INCREMENT,
+  `kode_type` varchar(255) DEFAULT NULL,
+  `merk_type` varchar(255) DEFAULT NULL,
+  `jenis_type` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_type_unit`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `type_unit` */
+
+insert  into `type_unit`(`id_type_unit`,`kode_type`,`merk_type`,`jenis_type`) values (1,'testtype1','agsdhd sysys','hs');
 
 /*Table structure for table `unit` */
 

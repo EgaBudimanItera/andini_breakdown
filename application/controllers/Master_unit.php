@@ -34,7 +34,8 @@ class Master_unit extends CI_Controller {
 			'jenis' => $this->Model->getdata('jenis'),
 			'merk' => $this->Model->getdata('merk'),
 			'jenis1' => $this->Model->getdata('jenis'),
-			'merk1' => $this->Model->getdata('merk')
+			'merk1' => $this->Model->getdata('merk'),
+			'type_unit' => $this->Model->getdata('type_unit')
 		);
 		$this->load->view('template/wrapper', $data);
 	}
@@ -42,6 +43,12 @@ class Master_unit extends CI_Controller {
 	public function get_unit(){
 		$id = $this->input->post('kdunit', true);
 		$getdata = $this->Model->getdata('unit', array('kdunit' => $id));
+		echo json_encode($getdata->row());
+	}
+
+	public function get_type_unit(){
+		$id = $this->input->post('kdunit', true);
+		$getdata = $this->Model->getdata('type_unit',array('id_type_unit' => $id));
 		echo json_encode($getdata->row());
 	}
 

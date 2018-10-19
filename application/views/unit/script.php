@@ -70,6 +70,21 @@
 			});
 		});
 
+		$(document).on('change', '#tipe_unit', function(e){
+			e.preventDefault();
+			var id = $(this).val();
+			$.ajax({
+				url: '<?=base_url()?>master_unit/get_type_unit',
+				type: 'POST',
+				data: 'kdunit='+id,
+				dataType: 'JSON',
+				success: function(msg){
+					$('#kode_jenis').val(msg.jenis_type);
+					$('#kode_merk').val(msg.merk_type);					
+				}
+			});
+		});
+
 		$(document).on('submit', '#form_unit', function(e){
 			e.preventDefault();
 			$('#notif_unit').html('Loading...');

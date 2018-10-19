@@ -100,26 +100,24 @@
 
           </div>
           <div class="form-group">
-            <label>Jenis </label>
-            <select name="kode_jenis" id="kode_jenis" class="span12" required >
+            <label>Tipe unit</label>
+            <select name="tipe_unit" id="tipe_unit" class="span12" required>
               <option value="">--pilih--</option>
-              <?php foreach($jenis->result() as $jns){?>
-              <option value="<?=$jns->kdjenis?>"><?=$jns->namajenis?></option>
+              <?php foreach($type_unit->result() as $row_type_unit){?>
+                <option value="<?=$row_type_unit->id_type_unit?>"><?=$row_type_unit->kode_type?></option>
               <?php }?>
             </select>
           </div>
           <div class="form-group">
-            <label>Tipe unit</label>
-            <input type="text" name="tipe_unit" id="tipe_unit" class="span12" required/>
+            <label>Jenis </label>
+            <input type="text" name="kode_jenis" id="kode_jenis" class="span12" required readonly />
+              
           </div>
+          
           <div class="form-group">
             <label>Merk </label>
-            <select name="kode_merk" id="kode_merk" class="span12" required >
-              <option value="">--pilih--</option>
-              <?php foreach($merk->result() as $mrk){?>
-              <option value="<?=$mrk->kdmerk?>"><?=$mrk->namamerk?></option>
-              <?php }?>
-            </select>
+            <input type="text" name="kode_merk" id="kode_merk" class="span12" required readonly >
+              
           </div>
           <div class="form-group">
             <label>Wilayah unit</label>
