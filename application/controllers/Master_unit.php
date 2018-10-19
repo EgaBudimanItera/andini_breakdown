@@ -25,7 +25,7 @@ class Master_unit extends CI_Controller {
 
 	public function index()
 	{
-		$query="SELECT * FROM unit JOIN merk ON unit.kdmerk=merk.kdmerk";
+		$query="SELECT * FROM unit LEFT JOIN merk ON unit.kdmerk=merk.kdmerk";
 		$data = array(
 			'link' => 'master_unit',
 			'page' => 'unit/data_unit',
