@@ -39,7 +39,7 @@
                             <div class="portlet-body">
                                 <div class="clearfix">
                                     <div class="btn-group">
-                                        <button id="" class="btn green add_perbaikan">
+                                        <button id="" class="btn green add_type_unit">
                                             Add New <i class="icon-plus"></i>
                                         </button>
                                     </div>
@@ -50,8 +50,9 @@
                                     <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kode perbaikan</th>
-                                        <th>Nama perbaikan</th>
+                                        <th>Kode type</th>
+                                        <th>Merk type</th>
+                                        <th>Jenis type</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -60,10 +61,11 @@
                                     <?php $no = 1;foreach($row->result() as $record){?>
                                     <tr class="">
                                         <td><?=$no++?>.</td>
-                                        <td><?=$record->kdperbaikan?></td>
-                                        <td><?=$record->keterangan?></td>                                        
-                                        <td><a href="#" class="editdata" id="<?=$record->kdperbaikan?>">Edit</a></td>
-                                        <td><a href="#" class="deletedata" id="<?=$record->kdperbaikan?>">Delete</a></td>
+                                        <td><?=$record->kode_type?></td>
+                                        <td><?=$record->merk_type?></td>  
+                                        <td><?=$record->jenis_type?></td>                                        
+                                        <td><a href="#" class="editdata" id="<?=$record->id_type_unit?>">Edit</a></td>
+                                        <td><a href="#" class="deletedata" id="<?=$record->id_type_unit?>">Delete</a></td>
                                     </tr>
                                     <?php }?>
                                     </tbody>
@@ -78,3 +80,64 @@
          <!-- END PAGE CONTAINER-->
       </div>
       <!-- END PAGE -->  
+
+<!-- Modal -->
+<div id="modal_type_unit" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Type unit</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form_type_unit">
+          <div class="form-group">
+            <label>Kode type unit <small>(max. 5 char)</small></label>
+            <input type="hidden" name="aksitypeunit" id="aksitypeunit"/>
+            <input type="text" name="kode_tipe_unit" id="kode_tipe_unit" class="span12" required />
+            <input type="hidden" name="idtypeunit" id="idtypeunit"/>
+          </div>
+          <div class="form-group">
+            <label>Merk type unit </label>
+            <input type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12" required/>
+          </div>
+          <div class="form-group">
+            <label>Jenis Type unit</label>
+            <input type="text" name="jenis_tipe_unit" id="jenis_tipe_unit" class="span12" required/>
+          </div>
+          <button type="submit" class="btn btn-success">Save</button>
+        </form>
+        <div id="notif_type_unit"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modal_type_unit_hapus" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Type unit</h4>
+      </div>
+      <div class="modal-body">
+        <p>Apakah anda yakin akan menghapus data ini?</p>
+        <button class="btn btn-danger btn-sm ya_hapus_type_unit">Ya</button> <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Tidak</button><br/><br/>
+        <div id="notif_type_unit_hapus"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

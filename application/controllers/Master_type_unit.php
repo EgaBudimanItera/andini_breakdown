@@ -34,4 +34,107 @@ class Master_type_unit extends CI_Controller {
 		$this->load->view('template/wrapper', $data);
 	}
 
+	public function get_type_unit(){
+		$id = $this->input->post('kdunit', true);
+		$getdata = $this->Model->getdata('type_unit', array('id_type_unit' => $id));
+		echo json_encode($getdata->row());
+	}
+
+	public function save_type_unit(){
+		$kode_type = $this->input->post('kode_tipe_unit', true);
+		$merk_type = $this->input->post('merk_tipe_unit', true);
+		$jenis_type = $this->input->post('jenis_tipe_unit', true);
+		
+		//cek kode unit
+		$cek = $this->Model->getdata('type_unit', array('kode_type' => $kode_type));
+		if($cek->num_rows() != 0){
+			$msg = array(
+				'status' => 'gagal',
+				'txt' => "<div class='alert alert-danger'>Maaf, kode type sudah digunakan..</div>",
+			);
+			echo json_encode($msg);
+			exit();
+		}
+
+		//definisi data to save
+		$data = array(
+			'kode_type' => $kode_type,
+			'merk_type' => $merk_type,
+			'jenis_type' => $jenis_type,
+			
+		);
+
+		//save data
+		$simpan =  $this->Model->insertdata('type_unit', $data);
+
+		if($simpan){
+			$msg = array(
+				'status' => 'sukses',
+				'txt' => "<div class='alert alert-success'>Data berhasil disimpan</div>",
+			);
+			echo json_encode($msg);
+			exit();
+		}else{
+			$msg = array(
+				'status' => 'gagal',
+				'txt' => "<div class='alert alert-danger'>Maaf, data gagal disimpan</div>",
+			);
+			echo json_encode($msg);
+			exit();
+		}
+
+	}
+
+	public function update_type_unit(){
+		$kode_type = $this->input->post('kode_tipe_unit', true);
+		$merk_type = $this->input->post('merk_tipe_unit', true);
+		$jenis_type = $this->input->post('jenis_tipe_unit', true);
+		$data = array(
+			'kode_type' => $kode_type,
+			'merk_type' => $merk_type,
+			'jenis_type' => $jenis_type,
+		);
+
+		//save data
+		$simpan =  $this->Model->updatedata('type_unit',array('id_type_unit' => $this->input->post('idtypeunit', true)), $data);
+
+		if($simpan){
+			$msg = array(
+				'status' => 'sukses',
+				'txt' => "<div class='alert alert-success'>Data berhasil disimpan</div>",
+			);
+			echo json_encode($msg);
+			exit();
+		}else{
+			$msg = array(
+				'status' => 'gagal',
+				'txt' => "<div class='alert alert-danger'>Maaf, data gagal disimpan</div>",
+			);
+			echo json_encode($msg);
+			exit();
+		}
+	}
+
+	public function delete_type_unit(){
+		$kodeunit = $this->input->post('kdunit', true);
+		//delete data
+		$hapus =  $this->Model->removedata('type_unit',array('id_type_unit' => $kodeunit));
+
+		if($hapus){
+			$msg = array(
+				'status' => 'sukses',
+				'txt' => "<div class='alert alert-success'>Data berhasil dihapus</div>",
+			);
+			echo json_encode($msg);
+			exit();
+		}else{
+			$msg = array(
+				'status' => 'gagal',
+				'txt' => "<div class='alert alert-danger'>Maaf, data gagal dihapus</div>",
+			);
+			echo json_encode($msg);
+			exit();
+		}
+	}
+
 }
