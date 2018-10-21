@@ -101,17 +101,19 @@
           </div>
           <div class="form-group">
             <label>Merk type unit </label>
-            <select type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12" required>
-              <option value="">--pilih--</option>
-              <?php foreach($merk->result() as $record_merk){?>
-              <option value="<?=$record_merk->kdmerk?>"><?=$record_merk->namamerk?></option>
-              <?php }?>
-            </select>
+            <div class="controls">
+              <select type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12 chosen" tabindex="1" required>
+                <option value="">--pilih--</option>
+                <?php foreach($merk->result() as $record_merk){?>
+                <option value="<?=$record_merk->kdmerk?>"><?=$record_merk->namamerk?></option>
+                <?php }?>
+              </select>
+            </div>
             <!-- <input type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12" required/> -->
           </div>
           <div class="form-group">
             <label>Jenis Type unit</label>
-            <input type="text" name="jenis_tipe_unit" id="jenis_tipe_unit" class="span12" required/>
+            <input type="text" name="jenis_tipe_unit " id="jenis_tipe_unit" class="span12" required/>
           </div>
           <button type="submit" class="btn btn-success">Save</button>
         </form>

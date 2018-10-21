@@ -101,12 +101,14 @@
           </div>
           <div class="form-group">
             <label>Tipe unit</label>
-            <select name="tipe_unit" id="tipe_unit" class="span12" required>
-              <option value="">--pilih--</option>
-              <?php foreach($type_unit->result() as $row_type_unit){?>
-                <option value="<?=$row_type_unit->id_type_unit?>"><?=$row_type_unit->kode_type?></option>
-              <?php }?>
-            </select>
+            <div class="controls">
+              <select name="tipe_unit" id="tipe_unit" class="span12 chosen" required>
+                <option value="">--pilih--</option>
+                <?php foreach($type_unit->result() as $row_type_unit){?>
+                  <option value="<?=$row_type_unit->id_type_unit?>"><?=$row_type_unit->kode_type?></option>
+                <?php }?>
+              </select>
+            </div>
           </div>
           <div class="form-group">
             <label>Jenis </label>
