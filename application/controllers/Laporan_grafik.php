@@ -146,8 +146,14 @@ class Laporan_grafik extends CI_Controller {
 			</tr>
 	<?php
 		}
-		$rata_kerusakan_by_date = $total_date/$query->num_rows();
-		$rata_kerusakan_by_time = $total_time/$query->num_rows();
+		if($query->num_rows()==NULL){
+			$rata_kerusakan_by_date = 0;
+			$rata_kerusakan_by_time = 0;
+		}else{
+			$rata_kerusakan_by_date = $total_date/$query->num_rows();
+			$rata_kerusakan_by_time = $total_time/$query->num_rows();	
+		}
+		
 
 		echo '</table><hr/>';
 		echo "Periode $tgl_awal s/d $tgl_akhir unit $kdunit mengalami rata - rata kerusakan $rata_kerusakan_by_date Hari<br/><br/>";

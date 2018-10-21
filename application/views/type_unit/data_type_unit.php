@@ -36,6 +36,7 @@
                            </span>                    
                         </div>
                         <div class="widget-body">
+                          
                             <div class="portlet-body">
                                 <div class="clearfix">
                                     <div class="btn-group">
@@ -62,8 +63,8 @@
                                     <tr class="">
                                         <td><?=$no++?>.</td>
                                         <td><?=$record->kode_type?></td>
-                                        <td><?=$record->merk_type?></td>  
-                                        <td><?=$record->jenis_type?></td>                                        
+                                        <td><?=$record->namamerk?></td>  
+                                        <td><?=$record->namajenis?></td>                                        
                                         <td><a href="#" class="editdata" id="<?=$record->id_type_unit?>">Edit</a></td>
                                         <td><a href="#" class="deletedata" id="<?=$record->id_type_unit?>">Delete</a></td>
                                     </tr>
@@ -101,7 +102,7 @@
           </div>
           <div class="form-group">
             <label>Merk type unit </label>
-            <select type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12" required>
+            <select type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span9 chosen" required>
               <option value="">--pilih--</option>
               <?php foreach($merk->result() as $record_merk){?>
               <option value="<?=$record_merk->kdmerk?>"><?=$record_merk->namamerk?></option>
@@ -110,9 +111,16 @@
             <!-- <input type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12" required/> -->
           </div>
           <div class="form-group">
-            <label>Jenis Type unit</label>
-            <input type="text" name="jenis_tipe_unit" id="jenis_tipe_unit" class="span12" required/>
+            <label>Jenis Type Unit</label>
+            <select type="text" name="jenis_tipe_unit" id="jenis_tipe_unit" class="span9 chosen" required>
+              <option value="">--pilih--</option>
+              <?php foreach($jenis->result() as $l){?>
+              <option value="<?=$l->kdjenis?>"><?=$l->namajenis?></option>
+              <?php }?>
+            </select>
+            <!-- <input type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12" required/> -->
           </div>
+          
           <button type="submit" class="btn btn-success">Save</button>
         </form>
         <div id="notif_type_unit"></div>

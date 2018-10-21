@@ -62,7 +62,7 @@
                                     <tr class="">
                                         <td><?=$no++?>.</td>
                                         <td><?=$record->kdunit?></td>
-                                        <td><?=$record->tipeunit?></td>
+                                        <td><?=$record->kode_type?></td>
                                         <th><?=$record->namamerk?></th>                                       
                                         <td><a href="#" class="editdata" id="<?=$record->kdunit?>">Edit</a></td>
                                         <td><a href="#" class="deletedata" id="<?=$record->kdunit?>">Delete</a></td>
@@ -101,7 +101,7 @@
           </div>
           <div class="form-group">
             <label>Tipe unit</label>
-            <select name="tipe_unit" id="tipe_unit" class="span12" required>
+            <select name="tipe_unit" id="tipe_unit" class="span12 chosen" required>
               <option value="">--pilih--</option>
               <?php foreach($type_unit->result() as $row_type_unit){?>
                 <option value="<?=$row_type_unit->id_type_unit?>"><?=$row_type_unit->kode_type?></option>
