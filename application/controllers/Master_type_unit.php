@@ -25,12 +25,15 @@ class Master_type_unit extends CI_Controller {
 
 	public function index()
 	{
+		$query="SELECT * FROM type_unit join merk on type_unit.merk_type=merk.kdmerk join jenis on jenis_type=kdjenis";
+		// var_dump($this->Model->getdataall('jenis')->result());exit();
 		$data = array(
 			'link' => 'master_type_unit',
 			'page' => 'type_unit/data_type_unit',
 			'script' => 'type_unit/script',
-			'row' => $this->Model->getdata('type_unit'),
-			'merk' => $this->Model->getdata('merk')
+			'row' => $this->Model->kueri($query),
+			'merk' => $this->Model->getdataall('merk'),
+			'jenis'=>$this->Model->getdataall('jenis'),
 		);
 		$this->load->view('template/wrapper', $data);
 	}

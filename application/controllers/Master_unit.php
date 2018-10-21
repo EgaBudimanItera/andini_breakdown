@@ -25,7 +25,7 @@ class Master_unit extends CI_Controller {
 
 	public function index()
 	{
-		$query="SELECT * FROM unit LEFT JOIN merk ON unit.kdmerk=merk.kdmerk";
+		$query="SELECT * FROM unit LEFT JOIN merk ON unit.kdmerk=merk.kdmerk JOIN type_unit ON tipeunit=id_type_unit ";
 		$data = array(
 			'link' => 'master_unit',
 			'page' => 'unit/data_unit',
@@ -48,7 +48,9 @@ class Master_unit extends CI_Controller {
 
 	public function get_type_unit(){
 		$id = $this->input->post('kdunit', true);
-		$getdata = $this->Model->getdata('type_unit',array('id_type_unit' => $id));
+		$query="SELECT * FROM type_unit join merk on type_unit.merk_type=merk.kdmerk join jenis on jenis_type=kdjenis where id_type_unit='$id'";
+		$getdata = $this->Model->kueri($query);
+		// $getdata = $this->Model->getdata('type_unit',array('id_type_unit' => $id));
 		echo json_encode($getdata->row());
 	}
 
