@@ -1,12 +1,14 @@
 <script type="text/javascript" src="assets/data-tables/jquery.dataTables.js"></script>
 <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
 <script src="<?=base_url()?>assets/js/table-editable.js"></script>
+<!-- <script type="text/javascript" src="<?=base_url()?>assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script> -->
 
 <script>
    jQuery(document).ready(function() {       
        TableEditable.init();
    });
    $(document).ready(function(e){
+   		// $('.select2').select2();
 		$(document).on('click', '.add_type_unit', function(e){
 			$('#modal_type_unit').modal();
 			$('#kode_tipe_unit').attr('readonly', false);

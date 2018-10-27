@@ -95,21 +95,22 @@
       <div class="modal-body">
         <form id="form_type_unit">
           <div class="form-group">
-            <label>Kode type unit <small>(max. 5 char)</small></label>
+            <label>Kode type unit <!-- <small>(max. 5 char)</small> --></label>
             <input type="hidden" name="aksitypeunit" id="aksitypeunit"/>
             <input type="text" name="kode_tipe_unit" id="kode_tipe_unit" class="span12" required />
             <input type="hidden" name="idtypeunit" id="idtypeunit"/>
           </div>
           <div class="form-group">
             <label>Merk type unit </label>
-            <select type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span9 chosen" required>
-              <option value="">--pilih--</option>
-              <?php foreach($merk->result() as $record_merk){?>
-              <option value="<?=$record_merk->kdmerk?>"><?=$record_merk->namamerk?></option>
-              <?php }?>
-            </select>
+              <select type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12 chosen" required>
+                <option value="">--pilih--</option>
+                <?php foreach($merk->result() as $record_merk){?>
+                <option value="<?=$record_merk->kdmerk?>"><?=$record_merk->namamerk?></option>
+                <?php }?>
+              </select>
             <!-- <input type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12" required/> -->
           </div>
+          
           <div class="form-group">
             <label>Jenis Type Unit</label>
             <select type="text" name="jenis_tipe_unit" id="jenis_tipe_unit" class="span9 chosen" required>
@@ -119,10 +120,12 @@
               <?php }?>
             </select>
             <!-- <input type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12" required/> -->
+
           </div>
           
           <button type="submit" class="btn btn-success">Save</button>
         </form>
+
         <div id="notif_type_unit"></div>
       </div>
       <div class="modal-footer">
