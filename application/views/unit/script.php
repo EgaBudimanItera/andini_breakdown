@@ -79,8 +79,10 @@
 				data: 'kdunit='+id,
 				dataType: 'JSON',
 				success: function(msg){
-					$('#kode_jenis').val(msg.namajenis);
-					$('#kode_merk').val(msg.namamerk);					
+					$('#kode_jenis').val(msg.jenis_type);
+					$('#kode_merk').val(msg.merk_type);		
+					$('#nama_jenis').val(msg.namajenis);
+					$('#nama_merk').val(msg.namamerk);				
 				}
 			});
 		});

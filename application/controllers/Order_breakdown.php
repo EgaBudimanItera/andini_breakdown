@@ -25,10 +25,11 @@ class Order_breakdown extends CI_Controller {
 
 	public function index()
 	{
+		$query="SELECT * FROM unit LEFT JOIN merk ON unit.kdmerk=merk.kdmerk JOIN type_unit ON tipeunit=id_type_unit ";
 		$data = array(
 			'link' => 'order_breakdown',
 			'page' => 'breakdown/order_breakdown',
-			'unit' => $this->Model->getdataall('unit'),
+			'unit' => $this->Model->kueri($query),
 			'id'=>$this->Model->id_breakdown(),
 		);
 		$this->load->view('template/wrapper', $data);

@@ -68,10 +68,10 @@
                                 <tr>
                                   <td><label>Unit:</label></td>
                                   <td>
-                                    <select class="span12" name="unit" id="unit" required>
+                                    <select class="span12 chosen" name="unit" id="unit" required>
                                       <option value="">--pilih--</option>
                                       <?php foreach($unit->result() as $row_unit){?>
-                                      <option value="<?=$row_unit->kdunit?>"><?=$row_unit->tipeunit.' - '.$row_unit->wilayahunit.' - '.$row_unit->hmawal.' - '.$row_unit->hmakhir?></option>
+                                      <option value="<?=$row_unit->kdunit?>"><?=$row_unit->kdunit.' - '.$row_unit->kode_type?></option>
                                       <?php }?>
                                     </select>
                                   </td>

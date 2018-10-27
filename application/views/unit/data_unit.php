@@ -110,14 +110,14 @@
           </div>
           <div class="form-group">
             <label>Jenis </label>
-            <input type="text" name="kode_jenis" id="kode_jenis" class="span12" required readonly />
-              
+            <input type="hidden" name="kode_jenis" id="kode_jenis" class="span12" required readonly />
+            <input type="text" name="nama_jenis" id="nama_jenis" class="span12" required readonly /> 
           </div>
           
           <div class="form-group">
             <label>Merk </label>
-            <input type="text" name="kode_merk" id="kode_merk" class="span12" required readonly >
-              
+            <input type="hidden" name="kode_merk" id="kode_merk" class="span12" required readonly >
+            <input type="text" name="nama_merk" id="nama_merk" class="span12" required readonly >
           </div>
           <div class="form-group">
             <label>Wilayah unit</label>
