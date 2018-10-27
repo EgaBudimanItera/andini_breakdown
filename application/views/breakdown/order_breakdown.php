@@ -71,7 +71,7 @@
                                     <select class="span12 chosen" name="unit" id="unit" required>
                                       <option value="">--pilih--</option>
                                       <?php foreach($unit->result() as $row_unit){?>
-                                      <option value="<?=$row_unit->kdunit?>"><?=$row_unit->kdunit.' - '.$row_unit->kode_type?></option>
+                                      <option value="<?=$row_unit->kdunit?>"><?=$row_unit->kdunit.' - '.$row_unit->kode_type.' - '.$row_unit->wilayahunit?></option>
                                       <?php }?>
                                     </select>
                                   </td>

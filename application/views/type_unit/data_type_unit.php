@@ -84,7 +84,7 @@
 
 <!-- Modal -->
 <div id="modal_type_unit" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -102,7 +102,7 @@
           </div>
           <div class="form-group">
             <label>Merk type unit </label>
-              <select type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span12 chosen" required>
+              <select type="text" name="merk_tipe_unit" id="merk_tipe_unit" class="span9 chosen" required>
                 <option value="">--pilih--</option>
                 <?php foreach($merk->result() as $record_merk){?>
                 <option value="<?=$record_merk->kdmerk?>"><?=$record_merk->namamerk?></option>
